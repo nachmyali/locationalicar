@@ -43,17 +43,20 @@ export function DatePicker({ value, onChange, min, required, className = '', lab
           <button
             type="button"
             className={cn(
-              'flex items-center gap-2 w-full rounded-xl px-4 py-3.5 text-sm font-inter text-left',
-              'border border-input bg-background hover:bg-accent/50 transition-colors',
-              !value && 'text-muted-foreground'
+              'flex items-center gap-3 w-full rounded-xl px-4 py-3.5 text-sm font-inter text-left',
+              'border border-remons-border bg-white hover:border-remons-primary/40',
+              'focus:outline-none focus:ring-2 focus:ring-remons-primary/20 focus:border-remons-primary',
+              'transition-all duration-200',
+              !value && 'text-remons-gray'
             )}
           >
-            <Calendar size={16} className="shrink-0 text-muted-foreground" />
-            {value ? (
-              <span>{format(new Date(value + 'T00:00:00'), 'd MMMM yyyy', { locale: fr })}</span>
-            ) : (
-              <span>Sélectionnez une date</span>
-            )}
+            <Calendar size={18} className="shrink-0 text-remons-primary" />
+            <span className={cn(
+              'truncate',
+              value ? 'text-remons-dark font-medium' : 'text-remons-gray'
+            )}>
+              {value ? format(new Date(value + 'T00:00:00'), 'd MMMM yyyy', { locale: fr }) : 'Sélectionnez une date'}
+            </span>
           </button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
