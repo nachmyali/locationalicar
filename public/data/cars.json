@@ -52,7 +52,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Petrol",
-    "image": "/images/car-placeholder.jpg"
+    "image": "https://media.cdn-jaguarlandrover.com/api/v2/images/118257/w/680/h/383.jpg"
   },
   {
     "id": 6,
