@@ -1,5 +1,4 @@
-import { Mail, Phone, Send } from 'lucide-react';
-import { img } from '@/lib/utils';
+import { Mail, Phone } from 'lucide-react';
 
 const quickLinks = [
   { label: 'À Propos', href: '#about' },
@@ -7,15 +6,6 @@ const quickLinks = [
   { label: 'Galerie', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
   { label: 'FAQ', href: '#faq' },
-];
-
-const galleryImages = [
-  img('/images/car-1.jpg'),
-  img('/images/car-2.jpg'),
-  img('/images/car-3.jpg'),
-  img('/images/car-4.jpg'),
-  img('/images/car-5.jpg'),
-  img('/images/car-6.jpg'),
 ];
 
 const socialLinks = [
@@ -83,7 +73,7 @@ export default function Footer() {
         </div>
 
         {/* Main Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+        <div className="grid sm:grid-cols-2 gap-10 mb-16">
           {/* Column 1 - Contact */}
           <div>
             <h4 className="font-poppins text-lg font-semibold text-white mb-6">Contact</h4>
@@ -125,39 +115,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 - Gallery */}
-          <div>
-            <h4 className="font-poppins text-lg font-semibold text-white mb-6">Galerie</h4>
-            <div className="grid grid-cols-3 gap-2">
-              {galleryImages.map((img, i) => (
-                <a key={i} href="#" className="aspect-square rounded-lg overflow-hidden group">
-                  <img
-                    src={img}
-                    alt={`Galerie ${i + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
 
-          {/* Column 4 - Newsletter */}
-          <div>
-            <h4 className="font-poppins text-lg font-semibold text-white mb-6">Newsletter</h4>
-            <p className="text-white/60 text-sm font-inter leading-relaxed mb-5">
-              Abonnez-vous à notre newsletter pour recevoir nos dernières actualités
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Adresse e-mail"
-                className="flex-1 bg-white rounded-l-full px-5 py-3 text-sm font-inter text-remons-dark focus:outline-none placeholder:text-remons-gray"
-              />
-              <button className="bg-remons-blue text-white w-12 rounded-r-full flex items-center justify-center hover:bg-remons-blue/80 transition-colors">
-                <Send size={18} />
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Copyright */}
