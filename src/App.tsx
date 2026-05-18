@@ -4,7 +4,7 @@ import Hero from './sections/Hero';
 import About from './sections/About';
 import CarRentals from './sections/CarRentals';
 import Gallery from './sections/Gallery';
-import Testimonials from './sections/Testimonials';
+
 import Features from './sections/Features';
 import Partners from './sections/Partners';
 import FAQ from './sections/FAQ';
@@ -19,7 +19,7 @@ function App() {
       <About />
       <CarRentals />
       <Gallery />
-      <Testimonials />
+
       <Features />
       <Partners />
       <FAQ />
