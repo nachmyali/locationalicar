@@ -4,6 +4,7 @@ import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
+const PHONE = '212630230803';
 const locations = ['Agence', 'Aéroport'];
 
 const features = [
@@ -23,6 +24,8 @@ export default function About() {
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
   const [carNames, setCarNames] = useState<string[]>([]);
+  const [location, setLocation] = useState(locations[0]);
+  const [vehicleType, setVehicleType] = useState('');
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/cars.json`)
@@ -30,6 +33,18 @@ export default function About() {
       .then((data) => setCarNames(data.map((c: { name: string }) => c.name)))
       .catch(() => {});
   }, []);
+
+  const handleBooking = () => {
+    const message = [
+      '*Nouvelle Réservation*',
+      '',
+      '*Lieu :* ' + location,
+      '*Véhicule :* ' + (vehicleType || 'Non spécifié'),
+      '*Date de départ :* ' + (fromDate || 'Non spécifiée'),
+      '*Date de retour :* ' + (toDate || 'Non spécifiée'),
+    ].join('\n');
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
+  };
   const sectionRef = useScrollAnimation<HTMLElement>({ animation: 'fadeInUp' });
   const leftRef = useScrollAnimation<HTMLDivElement>({
     animation: 'fadeInUp',
@@ -106,7 +121,11 @@ export default function About() {
                     Lieu de prise en charge
                   </label>
                   <div className="relative">
-                    <select className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none">
+                    <select
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none"
+                    >
                       {locations.map((loc) => (
                         <option key={loc}>{loc}</option>
                       ))}
@@ -133,17 +152,26 @@ export default function About() {
                     Type de véhicule
                   </label>
                   <div className="relative">
-                    <select className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none">
-                      {carNames.length > 0 ? carNames.map((name) => (
-                        <option key={name}>{name}</option>
-                      )) : <option>Toutes</option>}
+                    <select
+                      value={vehicleType}
+                      onChange={(e) => setVehicleType(e.target.value)}
+                      className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none"
+                    >
+                      <option value="">Sélectionnez un véhicule</option>
+                      {carNames.map((name) => (
+                        <option key={name} value={name}>{name}</option>
+                      ))}
                     </select>
                     <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-remons-gray pointer-events-none" />
                   </div>
                 </div>
 
-                <button className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-2.5 rounded-lg hover:bg-remons-secondary/90 transition-colors">
-                  Trouver une Voiture
+                <button
+                  type="button"
+                  onClick={handleBooking}
+                  className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-2.5 rounded-lg hover:bg-remons-secondary/90 transition-colors"
+                >
+                  Réserver Maintenant
                 </button>
               </div>
             </div>

@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
+const PHONE = '212630230803';
 const locations = ['Agence', 'Aéroport'];
 
 export default function Hero() {
@@ -16,6 +17,20 @@ export default function Hero() {
   const [pickupDate, setPickupDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
   const [carNames, setCarNames] = useState<string[]>([]);
+  const [location, setLocation] = useState(locations[0]);
+  const [vehicleType, setVehicleType] = useState('');
+
+  const handleBooking = () => {
+    const message = [
+      '*Nouvelle Réservation*',
+      '',
+      '*Lieu :* ' + location,
+      '*Véhicule :* ' + (vehicleType || 'Non spécifié'),
+      '*Date de prise en charge :* ' + (pickupDate || 'Non spécifiée'),
+      '*Date de retour :* ' + (returnDate || 'Non spécifiée'),
+    ].join('\n');
+    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
+  };
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/cars.json`)
@@ -127,7 +142,11 @@ export default function Hero() {
               Lieu de prise en charge
             </label>
             <div className="relative">
-              <select className="w-full bg-white rounded-xl px-4 py-3.5 pr-10 appearance-none font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30">
+              <select
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full bg-white rounded-xl px-4 py-3.5 pr-10 appearance-none font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+              >
                 {locations.map((loc) => (
                   <option key={loc}>{loc}</option>
                 ))}
@@ -164,18 +183,27 @@ export default function Hero() {
               Type de véhicule
             </label>
             <div className="relative">
-              <select className="w-full bg-white rounded-xl px-4 py-3.5 pr-10 appearance-none font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30">
-                {carNames.length > 0 ? carNames.map((name) => (
-                  <option key={name}>{name}</option>
-                )) : <option>Toutes</option>}
+              <select
+                value={vehicleType}
+                onChange={(e) => setVehicleType(e.target.value)}
+                className="w-full bg-white rounded-xl px-4 py-3.5 pr-10 appearance-none font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+              >
+                <option value="">Sélectionnez un véhicule</option>
+                {carNames.map((name) => (
+                  <option key={name} value={name}>{name}</option>
+                ))}
               </select>
               <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-remons-gray pointer-events-none" />
             </div>
           </div>
 
           {/* Submit Button */}
-          <button className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-remons-secondary/90 transition-colors">
-            Trouver une Voiture
+          <button
+            type="button"
+            onClick={handleBooking}
+            className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-remons-secondary/90 transition-colors"
+          >
+            Réserver Maintenant
           </button>
         </div>
       </div>
