@@ -9,6 +9,7 @@ import Features from './sections/Features';
 
 import FAQ from './sections/FAQ';
 import Footer from './sections/Footer';
+import PwaInstallBanner from './components/PwaInstallBanner';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Features />
       <FAQ />
       <Footer />
+      <PwaInstallBanner />
     </div>
   );
 }
