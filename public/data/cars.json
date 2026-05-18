@@ -19,7 +19,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Petrol",
-    "image": "/images/car-placeholder.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Renault_Clio_V_Genf_2019_1Y7A5590.jpg/1280px-Renault_Clio_V_Genf_2019_1Y7A5590.jpg"
   },
   {
     "id": 3,
