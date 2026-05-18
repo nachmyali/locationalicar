@@ -73,7 +73,7 @@ export default function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="relative h-screen min-h-[700px] overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen lg:min-h-[700px] lg:overflow-hidden pb-8 lg:pb-0">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
@@ -95,8 +95,8 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-        <div ref={titleRef} className="max-w-lg">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-0 lg:h-full lg:flex lg:items-center">
+        <div ref={titleRef} className="max-w-lg pt-10 lg:pt-0">
           <p className="text-white/90 text-sm font-poppins tracking-[0.2em] uppercase mb-4">
             Recherchez Votre Voiture
           </p>
@@ -113,7 +113,7 @@ export default function Hero() {
       {/* Booking Form Card */}
       <div
         ref={formRef}
-        className="absolute lg:bottom-16 bottom-8 lg:right-[5%] right-1/2 lg:translate-x-0 translate-x-1/2 z-20 w-[380px] max-w-[90vw] bg-remons-primary rounded-3xl p-8 shadow-elevated"
+        className="relative lg:absolute mt-8 lg:mt-0 lg:bottom-16 lg:right-[5%] z-20 w-full lg:w-[380px] max-w-[380px] mx-auto lg:max-w-[90vw] bg-remons-primary rounded-3xl p-8 shadow-elevated"
       >
         <div className="space-y-4">
           {/* Lieu de prise en charge */}
