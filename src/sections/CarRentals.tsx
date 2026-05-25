@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Star, Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
+import { Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
@@ -301,20 +301,11 @@ export default function CarRentals() {
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-4 right-4 bg-remons-blue text-white text-[12px] font-inter font-medium px-3 py-1 rounded-md">
-                    {new Date().getFullYear()} Modèle
-                  </span>
+
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="flex items-center gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={14} className="fill-remons-star text-remons-star" />
-                      ))}
-                    </div>
-                    <span className="text-remons-gray text-sm font-inter">2 Avis</span>
-                  </div>
+
 
                   <h4 className="font-poppins text-lg font-semibold text-remons-dark mb-1">
                     {car.name}
