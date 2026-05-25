@@ -5,7 +5,7 @@
     "price": 400,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Manual",
+    "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/e0e96d4d7b002a86cb9502ba95c61a33.png"
@@ -16,7 +16,7 @@
     "price": 351,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Petrol",
     "image": "https://www.yacout-tours.com/uploads/cars/679728f2afb7ff74a87189e4681db82e.png"
@@ -27,7 +27,7 @@
     "price": 352,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/d020349aa9ad9f17c9f06a2309f6fdfd.png"
@@ -38,7 +38,7 @@
     "price": 353,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Manuelle",
     "doors": 5,
     "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/d3b7a9de8d25d6e9fc815bb00d0c795b.png"
@@ -49,7 +49,7 @@
     "price": 354,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Manuelle",
     "doors": 5,
     "fuel": "Petrol",
     "image": "https://www.yacout-tours.com/uploads/cars/318dbe526a74793cef9d3812ccc9e38c.png"
@@ -60,7 +60,7 @@
     "price": 355,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
     "image": "https://www.yacout-tours.com/uploads/cars/a4a343997c02ce611d5f5bcce5775c3d.png"
@@ -71,7 +71,7 @@
     "price": 356,
     "duration": "Jour",
     "seats": 5,
-    "transmission": "Automatic",
+    "transmission": "Automatique",
     "doors": 4,
     "fuel": "Petrol",
     "image": "https://www.yacout-tours.com/uploads/cars/10860768d97425244c7d47f7615564ec.png"
@@ -82,7 +82,7 @@
     "price": 0,
     "duration": "Jour",
     "seats": 4,
-    "transmission": "Automatic",
+    "transmission": "Automatique",
     "doors": 4,
     "fuel": "Petrol",
     "image": "https://www.yacout-tours.com/uploads/cars/479e9ba94e00ca8ca3df12436949a73b.png"
