@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "Dacia Logan",
-    "price": 300,
+    "name": "mika",
+    "price": 100,
     "duration": "Per Day",
     "seats": 5,
     "transmission": "Manual",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "name": "Renault Clio 5",
-    "price": 50,
+    "price": 351,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "name": "Peugeot 208",
-    "price": 500,
+    "price": 352,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
@@ -35,29 +35,29 @@
   {
     "id": 4,
     "name": "Hyundai Tucson",
-    "price": 800,
+    "price": 353,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
-    "doors": 4,
+    "doors": 5,
     "fuel": "Diesel",
     "image": "https://www.hyundai.com/content/dam/hyundai/ma/fr/images/temp/202448081148/kona-hybrid-560-1.jpg"
   },
   {
     "id": 5,
     "name": "Range Rover Sport",
-    "price": 500,
+    "price": 354,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
-    "doors": 4,
+    "doors": 5,
     "fuel": "Petrol",
     "image": "https://media.cdn-jaguarlandrover.com/api/v2/images/118257/w/680/h/383.jpg"
   },
   {
     "id": 6,
     "name": "Mercedes Classe C",
-    "price": 1400,
+    "price": 355,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
@@ -68,7 +68,7 @@
   {
     "id": 7,
     "name": "BMW S?rie 3",
-    "price": 1500,
+    "price": 356,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
@@ -79,12 +79,12 @@
   {
     "id": 8,
     "name": "Volkswagen Golf 8",
-    "price": 650,
+    "price": 357,
     "duration": "Day",
     "seats": 5,
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://assets.volkswagen.com/is/image/volkswagenag/GL6287_Golf_exterior_IQ-Light_front_view_16-91?Zml0PWNyb3AsMSZmbXQ9d2VicCZxbHQ9Nzkmd2lkPTgwMCZhbGlnbj0wLjAwLDAuMDAmYmZjPW9mZiZiYzYz"
+    "image": "https://assets.volkswagen.com/is/image/volkswagenag/GL6287_Golf_exterior_IQ-Light_front_view_16-91?Zml0"
   }
 ]
