@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Dacia logan",
+    "name": "Dacia-Logan",
     "price": 400,
     "duration": "Per Day",
     "seats": 5,
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "name": "Renault Clio 5",
+    "name": "Kia-Picanto",
     "price": 351,
     "duration": "Day",
     "seats": 5,
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "name": "Peugeot 208",
+    "name": "Renault-Clio 5",
     "price": 352,
     "duration": "Day",
     "seats": 5,
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "name": "Hyundai Tucson",
+    "name": "Peugeot-208",
     "price": 353,
     "duration": "Day",
     "seats": 5,
@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "name": "Range Rover Sport",
+    "name": "Citro?n-C3",
     "price": 354,
     "duration": "Day",
     "seats": 5,
@@ -56,7 +56,7 @@
   },
   {
     "id": 6,
-    "name": "Mercedes Classe C",
+    "name": "Citro?n-Elys?e",
     "price": 355,
     "duration": "Day",
     "seats": 5,
@@ -67,7 +67,7 @@
   },
   {
     "id": 7,
-    "name": "BMW S?rie 3",
+    "name": "Fiat-500",
     "price": 356,
     "duration": "Day",
     "seats": 5,
@@ -75,5 +75,16 @@
     "doors": 4,
     "fuel": "Petrol",
     "image": "https://www.yacout-tours.com/uploads/cars/10860768d97425244c7d47f7615564ec.png"
+  },
+  {
+    "id": 8,
+    "name": "VolksWagen-Touareg",
+    "price": 0,
+    "duration": "Per Day",
+    "seats": 4,
+    "transmission": "Automatic",
+    "doors": 4,
+    "fuel": "Petrol",
+    "image": "https://www.yacout-tours.com/uploads/cars/479e9ba94e00ca8ca3df12436949a73b.png"
   }
 ]
