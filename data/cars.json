@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Dacia-Logan",
-    "price": 400,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Manuelle",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "name": "Kia-Picanto",
-    "price": 351,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Manuelle",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "name": "Renault-Clio 5",
-    "price": 352,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Manuelle",
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "name": "Peugeot-208",
-    "price": 353,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Manuelle",
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "name": "Citro?n-C3",
-    "price": 354,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Manuelle",
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "name": "Citro?n-Elys?e",
-    "price": 355,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Manuelle",
@@ -68,7 +68,7 @@
   {
     "id": 7,
     "name": "Fiat-500",
-    "price": 356,
+    "price": 0,
     "duration": "Jour",
     "seats": 5,
     "transmission": "Automatique",
