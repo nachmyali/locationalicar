@@ -2,12 +2,12 @@
   {
     "id": 1,
     "name": "Dacia-Logan",
-    "price": 400,
-    "duration": "Jour",
+    "price": 450,
+    "duration": "Per Day",
     "seats": 5,
-    "transmission": "Manuelle",
+    "transmission": "Automatic",
     "doors": 4,
-    "fuel": "Essence",
+    "fuel": "Petrol",
     "image": "https://www.yacout-tours.com/uploads/cars/e0e96d4d7b002a86cb9502ba95c61a33.png"
   },
   {
