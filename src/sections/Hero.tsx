@@ -76,11 +76,16 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen lg:min-h-[700px] overflow-x-hidden lg:overflow-hidden pb-8 lg:pb-0">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700"
-        style={{ backgroundImage: `url(${img('/images/hero-bg.jpg')})` }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={img('/Vid.mp4')} type="video/mp4" />
+      </video>
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-slate-950/40" />
 
