@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Phone, Search, Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -16,9 +16,21 @@ export default function Navbar() {
   const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY > lastScrollY.current && currentY > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+
+      lastScrollY.current = currentY;
+
       const sections = navKeys.map(l => l.href.replace('#', ''));
       for (const id of sections.reverse()) {
         const el = document.getElementById(id);
@@ -35,7 +47,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-white border-b border-remons-border sticky top-0 z-50">
+    <nav
+      className={`
+        bg-white border-b border-remons-border sticky top-0 z-50
+        transition-all duration-500 ease-in-out
+        ${hidden ? '-translate-y-full' : 'translate-y-0'}
+      `}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
