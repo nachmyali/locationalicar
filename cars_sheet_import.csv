@@ -1,0 +1,10 @@
+Car Name,Category,Price (EUR),Duration,Seats,Transmission,Doors,Fuel,Image URL
+Dacia-Logan,CAT A,30,jour,5,Automatic,4,Petrol,https://www.yacout-tours.com/uploads/cars/e0e96d4d7b002a86cb9502ba95c61a33.png
+Kia-Picanto,CAT A,30,jour,5,Manuelle,4,Essence,https://www.yacout-tours.com/uploads/cars/679728f2afb7ff74a87189e4681db82e.png
+Hyundai i10,CAT A,30,jour,5,Manual,5,Petrol,https://www.hyundai.com/content/dam/hyundai/ma/fr/images/test/TEST2/1120X600-6.png
+Renault-Clio 5,CAT B,35,jour,5,Manuelle,4,Diesel,https://www.yacout-tours.com/uploads/cars/d020349aa9ad9f17c9f06a2309f6fdfd.png
+Peugeot-208,CAT B,35,jour,5,Manuelle,4,Diesel,https://www.yacout-tours.com/uploads/cars/d3b7a9de8d25d6e9fc815bb00d0c795b.png
+Citroen C3 Aircross,CAT C,45,jour,5,Manuelle,4,Diesel,https://www.yacout-tours.com/uploads/cars/318dbe526a74793cef9d3812ccc9e38c.png
+Dacia Duster,CAT C,45,jour,5,Manual,5,Diesel,https://upload.wikimedia.org/wikipedia/commons/a/ab/Dacia_Duster_TCe_130_Extreme_%28III%29_%E2%80%93_f_13102024.jpg
+Dacia Jogger 7 Places,CAT C,45,jour,7,Manual,5,Diesel,https://motorsactu.com/wp-content/uploads/2021/09/2021-Dacia-Jogger-15.jpg
+Peugeot 3008,CAT D,70,jour,5,Automatic,5,Diesel,https://upload.wikimedia.org/wikipedia/commons/e/ed/Peugeot_e-3008_Automesse_Ludwigsburg_2024_IMG_1537.jpg
