@@ -199,8 +199,8 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-      <div className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-elevated">
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60 p-4 overflow-y-auto">
+      <div className="relative w-full max-w-md bg-white rounded-3xl p-8 shadow-elevated my-8">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 w-8 h-8 rounded-full bg-remons-light-gray flex items-center justify-center hover:bg-remons-primary hover:text-white transition-colors"
