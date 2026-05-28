@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Mail, MapPin } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import CurrencySwitcher from '@/components/CurrencySwitcher';
 
 export default function TopBar() {
   const { t } = useTranslation();
@@ -19,7 +20,10 @@ export default function TopBar() {
               <span>{t('topbar.address')}</span>
             </div>
           </div>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-2">
+            <CurrencySwitcher />
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </div>

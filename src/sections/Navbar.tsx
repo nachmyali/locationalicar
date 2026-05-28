@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Phone, Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import CurrencySwitcher from '@/components/CurrencySwitcher';
 import { img } from '@/lib/utils';
 
 const navKeys = [
@@ -101,6 +102,9 @@ export default function Navbar() {
 
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-4">
+            <CurrencySwitcher variant="dark" />
+            <LanguageSwitcher variant="dark" />
+
             {/* Phone */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-remons-primary to-remons-primary-light shadow-button flex items-center justify-center">
@@ -153,7 +157,8 @@ export default function Navbar() {
             >
               {t('navbar.findCar')}
             </a>
-            <div className="pt-2">
+            <div className="pt-2 flex items-center gap-2">
+              <CurrencySwitcher variant="dark" />
               <LanguageSwitcher variant="dark" />
             </div>
           </div>

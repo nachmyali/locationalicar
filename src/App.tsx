@@ -8,22 +8,25 @@ import Gallery from './sections/Gallery';
 import FAQ from './sections/FAQ';
 import Footer from './sections/Footer';
 import PwaInstallBanner from './components/PwaInstallBanner';
+import { CurrencyProvider } from './lib/currency';
 import './i18n';
 
 function App() {
   return (
-    <div className="min-h-screen font-inter overflow-x-hidden">
-      <TopBar />
-      <Navbar />
-      <Hero />
-      <About />
-      <CarRentals />
-      <Gallery />
+    <CurrencyProvider>
+      <div className="min-h-screen font-inter overflow-x-hidden">
+        <TopBar />
+        <Navbar />
+        <Hero />
+        <About />
+        <CarRentals />
+        <Gallery />
 
-      <FAQ />
-      <Footer />
-      <PwaInstallBanner />
-    </div>
+        <FAQ />
+        <Footer />
+        <PwaInstallBanner />
+      </div>
+    </CurrencyProvider>
   );
 }
 

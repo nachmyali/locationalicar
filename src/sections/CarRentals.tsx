@@ -4,6 +4,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
+import { useCurrency, convertPrice } from '@/lib/currency';
 
 interface Car {
   id: number;
@@ -122,6 +123,7 @@ function encodePayload(payload: unknown) {
 
 function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
   const { t } = useTranslation();
+  const { currency } = useCurrency();
   const locations = [
     'Marrakech ville', 'Aéroport Marrakech',
     'Casablanca ville', 'Aéroport Casablanca',
@@ -150,10 +152,15 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
   const days = getDurationDays(form.startDate, form.endDate);
   const season = getSeason(form.startDate);
   const bracket = getBracket(car.category, days);
-  const dailyRate = bracket ? (season === 'haute' ? bracket.haute : bracket.normal) : 0;
-  const transportPrice = TRANSPORT_PRICES[form.location] ?? 0;
-  const rentalTotalEUR = dailyRate * days;
-  const totalEUR = rentalTotalEUR + transportPrice;
+  const dailyRateEUR = bracket ? (season === 'haute' ? bracket.haute : bracket.normal) : 0;
+  const transportEUR = TRANSPORT_PRICES[form.location] ?? 0;
+  const rentalTotalEUR = dailyRateEUR * days;
+  const totalEUR = rentalTotalEUR + transportEUR;
+  const symbol = currency.symbol;
+  const dailyRate = convertPrice(dailyRateEUR, currency.code);
+  const transportPrice = convertPrice(transportEUR, currency.code);
+  const rentalTotal = convertPrice(rentalTotalEUR, currency.code);
+  const total = convertPrice(totalEUR, currency.code);
 
   const sendReservationToSheet = async () => {
     if (!BOOKING_WEB_APP_URL) {
@@ -174,10 +181,10 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
         startDate: form.startDate,
         endDate: form.endDate,
         location: form.location,
-        transportEUR: transportPrice,
+        transportEUR: transportEUR,
         season: season,
         durationDays: days,
-        dailyRateEUR: dailyRate,
+        dailyRateEUR: dailyRateEUR,
         rentalTotalEUR: rentalTotalEUR,
         totalEUR: totalEUR,
       },
@@ -203,7 +210,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
     const seasonLabel = season === 'haute' ? 'Haute Saison' : 'Saison Normale';
     const durationLabel = bracket ? bracket.label : '-';
     const transportDetail = transportPrice > 0
-      ? `Trajet : ${form.location} (${transportPrice} EUR)`
+      ? `Trajet : ${form.location} (${transportPrice} ${symbol})`
       : null;
     const message = [
       t('cars.bookingTitle'),
@@ -212,9 +219,9 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
       `Catégorie : ${car.category}`,
       `Saison : ${seasonLabel}`,
       `Durée : ${days} jours (${durationLabel})`,
-      `Location : ${dailyRate} EUR × ${days} j = ${rentalTotalEUR} EUR`,
+      `Location : ${dailyRate} ${symbol} × ${days} j = ${rentalTotal} ${symbol}`,
       ...(transportDetail ? [transportDetail] : []),
-      `*Total : ${totalEUR} EUR*`,
+      `*Total : ${total} ${symbol}*`,
       t('cars.locationField') + form.location,
       t('cars.nameField') + form.name,
       t('cars.emailField') + form.email,
@@ -316,7 +323,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
             />
           </div>
 
-          {form.startDate && form.endDate && days > 0 && dailyRate > 0 && (
+          {form.startDate && form.endDate && days > 0 && dailyRateEUR > 0 && (
             <div className="bg-remons-light-gray rounded-xl p-4 space-y-1.5">
               <p className="text-xs font-inter font-semibold text-remons-dark uppercase tracking-wider">
                 Détail du prix
@@ -334,18 +341,18 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
                 <span className="font-medium">{days} jours ({bracket?.label})</span>
               </div>
               <div className="flex justify-between text-sm font-inter text-remons-dark">
-                <span>Location ({dailyRate} EUR × {days} j)</span>
-                <span className="font-medium">{rentalTotalEUR} EUR</span>
+                <span>Location ({dailyRate} {symbol} × {days} j)</span>
+                <span className="font-medium">{rentalTotal} {symbol}</span>
               </div>
               {transportPrice > 0 && (
                 <div className="flex justify-between text-sm font-inter text-remons-dark">
                   <span>Trajet ({form.location})</span>
-                  <span className="font-medium">{transportPrice} EUR</span>
+                  <span className="font-medium">{transportPrice} {symbol}</span>
                 </div>
               )}
               <div className="border-t border-remons-border pt-1.5 mt-1.5 flex justify-between text-sm font-inter font-bold text-remons-primary">
                 <span>Total</span>
-                <span>{totalEUR} EUR</span>
+                <span>{total} {symbol}</span>
               </div>
             </div>
           )}
@@ -397,6 +404,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
 export default function CarRentals() {
   const { t } = useTranslation();
+  const { currency } = useCurrency();
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -493,7 +501,7 @@ export default function CarRentals() {
 
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="font-poppins text-xl font-bold text-remons-primary">
-                      {getStartingPrice(car.category, currentSeason)} EUR
+                      {convertPrice(getStartingPrice(car.category, currentSeason), currency.code)} {currency.symbol}
                     </span>
                     <span className="text-remons-gray text-sm font-inter">/ {car.duration}</span>
                     {currentSeason === 'haute' && (
