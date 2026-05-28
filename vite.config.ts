@@ -10,20 +10,20 @@ const manifest: Partial<ManifestOptions> = {
   name: "Yacout Tours - Location de voitures",
   short_name: "Yacout Tours",
   description: "Yacout Tours Location Voiture Marrakech Aeroport l'agence de location de voitures partout au Maroc aux meilleurs conditions.",
-  start_url: "/RENTCAR/",
+  start_url: process.env.GITHUB_ACTIONS ? "/RENTCAR/" : "/",
   display: "standalone",
   background_color: "#ffffff",
   theme_color: "#08B5F4",
   lang: "fr",
   icons: [
     {
-      src: "/RENTCAR/pwa.png",
+      src: (process.env.GITHUB_ACTIONS ? "/RENTCAR/" : "/") + "pwa.png",
       sizes: "1024x1024",
       type: "image/png",
       purpose: "any",
     },
     {
-      src: "/RENTCAR/pwa.png",
+      src: (process.env.GITHUB_ACTIONS ? "/RENTCAR/" : "/") + "pwa.png",
       sizes: "1024x1024",
       type: "image/png",
       purpose: "maskable",
@@ -32,7 +32,7 @@ const manifest: Partial<ManifestOptions> = {
 }
 
 export default defineConfig({
-  base: '/RENTCAR/',
+  base: process.env.GITHUB_ACTIONS ? '/RENTCAR/' : '/',
   plugins: [
     inspectAttr(),
     react(),
