@@ -96,7 +96,7 @@
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Petrol",
-    "image": "/images/car-placeholder.jpg"
+    "image": "https://www.hyundai.com/content/dam/hyundai/ma/fr/images/test/TEST2/1120X600-6.png"
   },
   {
     "id": 10,
@@ -121,7 +121,7 @@
     "image": "/images/car-placeholder.jpg"
   },
   {
-    "id": 13,
+    "id": 12,
     "name": "Dacia Jogger 7 Places",
     "price": 750,
     "duration": "Per Day",
@@ -132,7 +132,7 @@
     "image": "/images/car-placeholder.jpg"
   },
   {
-    "id": 14,
+    "id": 13,
     "name": "Peugeot 3008",
     "price": 900,
     "duration": "Per Day",
