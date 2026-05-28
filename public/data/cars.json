@@ -9,7 +9,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Petrol",
-    "image": "https://www.yacout-tours.com/uploads/cars/e0e96d4d7b002a86cb9502ba95c61a33.png"
+    "image": "https://diamondblueauto.com/media/2025/06/Voiture_Dacia_Logan_Diamonds_Blue_Auto.jpg"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Essence",
-    "image": "https://www.yacout-tours.com/uploads/cars/679728f2afb7ff74a87189e4681db82e.png"
+    "image": "https://www.kia.com/content/dam/kwcms/kme/global/en/assets/vehicles/ja/picanto-my25/discover/kia-picanto-my25-video-keyvisual-m.jpg"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Petrol",
-    "image": "https://www.hyundai.com/content/dam/hyundai/ma/fr/images/test/TEST2/1120X600-6.png"
+    "image": "https://siaracash.ma/new-assets/newbrands/hyundai/hyundai-i10/hyundai-i10-39.jpg"
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/d020349aa9ad9f17c9f06a2309f6fdfd.png"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/59/Renault_Clio_V_Genf_2019_1Y7A5590.jpg"
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/d3b7a9de8d25d6e9fc815bb00d0c795b.png"
+    "image": "https://v3.moteur.ma/storage/media/images/news/20190610041042-S1-nouvelle-peugeot-208-prix-a-partir-de-15-500-eur-593600.jpg"
   },
   {
     "id": 6,
@@ -69,7 +69,7 @@
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/318dbe526a74793cef9d3812ccc9e38c.png"
+    "image": "https://lopinion.ma/media/uploads/87741679-62199587.jpg"
   },
   {
     "id": 7,
@@ -93,7 +93,7 @@
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Diesel",
-    "image": "https://motorsactu.com/wp-content/uploads/2021/09/2021-Dacia-Jogger-15.jpg"
+    "image": "https://static.moniteurautomobile.be/clients/moniteur/content/medias/images/test_drives/10000/800/50/dacia-jogger-2.jpg"
   },
   {
     "id": 9,
@@ -105,6 +105,6 @@
     "transmission": "Automatic",
     "doors": 5,
     "fuel": "Diesel",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Peugeot_e-3008_Automesse_Ludwigsburg_2024_IMG_1537.jpg"
+    "image": "https://cdn.motor1.com/images/mgl/Kb87pq/s3/cg307663.webp"
   }
 ]
