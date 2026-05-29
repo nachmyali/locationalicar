@@ -113,7 +113,7 @@
     "category": "CAT A",
     "price": 30,
     "duration": "jour",
-    "seats": 4,
+    "seats": 5,
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Essence",
