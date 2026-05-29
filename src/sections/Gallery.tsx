@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Star, X } from 'lucide-react';
+import { Star, X, Play } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { useState, useRef, useEffect } from 'react';
 
@@ -40,16 +40,19 @@ export default function Gallery() {
           {/* Masonry Grid */}
           <div ref={imagesRef} className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {Array.from({ length: 7 }, (_, i) => (
-              <div key={i} className="gallery-item aspect-[4/3] relative rounded-xl overflow-hidden group cursor-pointer">
+              <div key={i} className="gallery-item aspect-[4/3] relative rounded-xl overflow-hidden group cursor-pointer" onClick={() => setSelectedVideo(i)}>
                 <video
                   src={img(`/tmx/${i + 1}.mp4`)}
-                  autoPlay
                   muted
-                  loop
                   playsInline
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                  onClick={() => setSelectedVideo(i)}
+                  preload="metadata"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 pointer-events-none"
                 />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Play size={28} className="text-remons-primary ml-1" />
+                  </div>
+                </div>
                 <div className="absolute inset-0 bg-remons-primary/0 group-hover:bg-remons-primary/20 transition-colors duration-300" />
               </div>
             ))}
