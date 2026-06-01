@@ -46,7 +46,7 @@ Haute saison = **July 1 → August 25** (configurable via admin `/admin/cars` �
 
 - **GitHub Pages** via `.github/workflows/pages.yml` (pushes `dist/` to `gh-pages` branch, runs on push to `master`).
 - **Vercel** also supported (`vercel.json` SPA rewrites).
-- Base URL: `/` locally, `/RENTCAR/` when `GITHUB_ACTIONS` env is set.
+- Base URL: `/` locally, `/RENT/` when `GITHUB_ACTIONS` env is set.
 - **Use `img(path)` from `@/lib/utils`** for asset paths — it resolves the BASE_URL for GH Pages.
 
 ## PWA

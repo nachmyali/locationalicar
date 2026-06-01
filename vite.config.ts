@@ -10,20 +10,20 @@ const manifest: Partial<ManifestOptions> = {
   name: "INVOLOCATION - Location de voitures",
   short_name: "INVOLOCATION",
   description: "INVOLOCATION Location Voiture Marrakech Aeroport l'agence de location de voitures partout au Maroc aux meilleurs conditions.",
-  start_url: process.env.GITHUB_ACTIONS ? "/RENTCAR/" : "/",
+  start_url: process.env.GITHUB_ACTIONS ? "/RENT/" : "/",
   display: "standalone",
   background_color: "#ffffff",
   theme_color: "#DC2626",
   lang: "fr",
   icons: [
     {
-      src: (process.env.GITHUB_ACTIONS ? "/RENTCAR/" : "/") + "pwa.png",
+      src: (process.env.GITHUB_ACTIONS ? "/RENT/" : "/") + "pwa.png",
       sizes: "1024x1024",
       type: "image/png",
       purpose: "any",
     },
     {
-      src: (process.env.GITHUB_ACTIONS ? "/RENTCAR/" : "/") + "pwa.png",
+      src: (process.env.GITHUB_ACTIONS ? "/RENT/" : "/") + "pwa.png",
       sizes: "1024x1024",
       type: "image/png",
       purpose: "maskable",
