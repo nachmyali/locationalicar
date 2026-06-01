@@ -32,7 +32,10 @@ const manifest: Partial<ManifestOptions> = {
 }
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/RENTCAR/' : '/',
+  base: process.env.GITHUB_ACTIONS ? '/RENT/' : '/',
+  build: {
+    sourcemap: false,
+  },
   plugins: [
     inspectAttr(),
     react(),
