@@ -1,53 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { Headphones, MousePointerClick, ShieldCheck } from 'lucide-react';
 import { img } from '@/lib/utils';
-import { DatePicker } from '@/components/DatePicker';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { supabase } from '@/lib/supabase';
 
-const PHONE = '212630230803';
 const featureKeys = ['express', 'insurance', 'support'] as const;
 
 export default function Hero() {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLDivElement>(null);
   const band1Ref = useRef<HTMLDivElement>(null);
   const band2Ref = useRef<HTMLDivElement>(null);
-  const [pickupDate, setPickupDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
-  const [carNames, setCarNames] = useState<string[]>([]);
-  const [locations, setLocations] = useState<string[]>([]);
-  const [location, setLocation] = useState('');
-  const [vehicleType, setVehicleType] = useState('');
-
-  useEffect(() => {
-    Promise.all([
-      supabase.from('cars').select('name').eq('active', true).order('id'),
-      supabase.from('transport_prices').select('from_location, to_location'),
-    ]).then(([carsRes, transportRes]) => {
-      if (!carsRes.error && carsRes.data) setCarNames(carsRes.data.map((c) => c.name));
-      if (!transportRes.error && transportRes.data) {
-        const set = new Set<string>();
-        for (const p of transportRes.data) {
-          set.add(p.from_location);
-          set.add(p.to_location);
-        }
-        const sorted = Array.from(set).sort();
-        setLocations(sorted);
-        setLocation(sorted[0] || '');
-      }
-    });
-  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -71,29 +35,10 @@ export default function Hero() {
         delay: 0.4,
         ease: 'power2.out',
       });
-      gsap.from(formRef.current, {
-        opacity: 0,
-        x: 50,
-        duration: 0.7,
-        delay: 0.6,
-        ease: 'power2.out',
-      });
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
-
-  const handleBooking = () => {
-    const message = [
-      t('hero.bookingTitle'),
-      '',
-      t('hero.locationField') + location,
-      t('hero.vehicleField') + (vehicleType || t('hero.notSpecified')),
-      t('hero.pickupField') + (pickupDate || t('hero.notSpecifiedF')),
-      t('hero.returnField') + (returnDate || t('hero.notSpecifiedF')),
-    ].join('\n');
-    window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
-  };
 
   return (
     <section ref={sectionRef} className="relative min-h-screen lg:min-h-[700px] overflow-x-hidden lg:overflow-hidden pb-8 lg:pb-0">
@@ -156,79 +101,6 @@ export default function Hero() {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Booking Form Card */}
-      <div
-        ref={formRef}
-        className="premium-panel relative lg:absolute mt-8 lg:mt-0 lg:bottom-16 lg:right-[5%] z-20 w-full lg:w-[380px] max-w-full lg:max-w-[380px] mx-auto rounded-3xl px-5 sm:px-6 lg:px-8 py-6 sm:py-8"
-      >
-        <div className="space-y-4">
-          {/* Lieu de prise en charge */}
-          <div>
-            <label className="block text-white text-[13px] font-inter font-medium mb-2">
-                    Lieu de prise en charge / Livraison
-            </label>
-            <Select value={location} onValueChange={setLocation}>
-              <SelectTrigger className="w-full bg-white/95 rounded-xl px-4 py-3.5 h-auto border-0 shadow-sm text-remons-dark text-sm">
-                <SelectValue placeholder="Sélectionner un lieu" />
-              </SelectTrigger>
-              <SelectContent>
-                {locations.map((loc) => (
-                  <SelectItem key={loc} value={loc}>{loc}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Dates */}
-          <div className="grid grid-cols-2 gap-2 sm:gap-3">
-            <div>
-              <label className="block text-white text-[13px] font-inter font-medium mb-2">
-                {t('hero.startDateLabel')}
-              </label>
-              <DatePicker
-                  value={pickupDate}
-                  onChange={setPickupDate}
-                />
-            </div>
-            <div>
-              <label className="block text-white text-[13px] font-inter font-medium mb-2">
-                {t('hero.endDateLabel')}
-              </label>
-              <DatePicker
-                  value={returnDate}
-                  onChange={setReturnDate}
-                />
-            </div>
-          </div>
-
-          {/* Type de véhicule */}
-          <div>
-            <label className="block text-white text-[13px] font-inter font-medium mb-2">
-              {t('hero.vehicleLabel')}
-            </label>
-            <Select value={vehicleType} onValueChange={setVehicleType}>
-              <SelectTrigger className="w-full bg-white/95 rounded-xl px-4 py-3.5 h-auto border-0 shadow-sm text-remons-dark text-sm">
-                <SelectValue placeholder={t('hero.vehiclePlaceholder')} />
-              </SelectTrigger>
-              <SelectContent>
-                {carNames.map((name) => (
-                  <SelectItem key={name} value={name}>{name}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="button"
-            onClick={handleBooking}
-            className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-slate-950 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
-          >
-            {t('hero.bookNow')}
-          </button>
         </div>
       </div>
     </section>

@@ -50,7 +50,6 @@ function buildReservationEmail(
     message?: string;
   },
   fromName: string,
-  smtpEmail: string,
 ) {
   const statusLabels: Record<string, string> = {
     new: 'Nouvelle',
@@ -68,74 +67,154 @@ function buildReservationEmail(
     completed: '#2563EB',
   };
 
-  const label = statusLabels[status] || status;
-  const statusColor = statusColors[status] || '#DC2626';
-
-  const rows: string[] = [];
-  const addRow = (label: string, value: string) => {
-    rows.push(`
-      <tr>
-        <td style="padding: 10px 16px; border-bottom: 1px solid #F3F4F6; color: #6B7280; font-size: 13px; white-space: nowrap; vertical-align: top;">${label}</td>
-        <td style="padding: 10px 16px; border-bottom: 1px solid #F3F4F6; color: #111827; font-size: 14px; font-weight: 600; vertical-align: top;">${value}</td>
-      </tr>`);
+  const statusIcons: Record<string, string> = {
+    new: '\u{1F534}',
+    contacted: '\u23F3',
+    confirmed: '\u2705',
+    cancelled: '\u274C',
+    completed: '\u2705',
   };
 
-  if (data.car_name) addRow('V\u00e9hicule', data.car_name);
-  if (data.start_date) addRow('D\u00e9but', data.start_date);
-  if (data.end_date) addRow('Fin', data.end_date);
-  if (data.location) addRow('Lieu', data.location);
-  if (data.total_eur) addRow('Total', `${data.total_eur.toFixed(2)} \u20ac`);
+  const label = statusLabels[status] || status;
+  const statusColor = statusColors[status] || '#DC2626';
+  const statusIcon = statusIcons[status] || '';
 
   const isNew = status === 'new';
   const greeting = isNew
-    ? `Nouvelle r\u00e9servation de <strong>${data.client_name || 'Client'}</strong>`
+    ? `Bonjour <strong>${fromName}</strong>, une nouvelle r\u00e9servation vient d\u2019\u00eatre effectu\u00e9e par <strong>${data.client_name || 'un client'}</strong>.`
     : `Bonjour <strong>${data.client_name || 'Client'}</strong>, le statut de votre r\u00e9servation a \u00e9t\u00e9 mis \u00e0 jour.`;
 
+  const greetingSub = isNew
+    ? 'Vous trouverez ci-dessous les d\u00e9tails de la r\u00e9servation.'
+    : 'Voici un r\u00e9capitulatif de votre r\u00e9servation mise \u00e0 jour.';
+
+  const formatDate = (d: string) => {
+    if (!d) return '';
+    const date = new Date(d);
+    return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  };
+
+  const detailRows: string[] = [];
+  if (data.car_name) detailRows.push(`
+    <tr>
+      <td style="padding: 14px 20px; border-bottom: 1px solid #F3F4F6;">
+        <span style="display: block; color: #9CA3AF; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">V\u00e9hicule</span>
+        <span style="color: #111827; font-size: 15px; font-weight: 600;">${data.car_name}</span>
+      </td>
+    </tr>`);
+  if (data.start_date) detailRows.push(`
+    <tr>
+      <td style="padding: 14px 20px; border-bottom: 1px solid #F3F4F6;">
+        <span style="display: block; color: #9CA3AF; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">D\u00e9but</span>
+        <span style="color: #111827; font-size: 15px; font-weight: 600;">${formatDate(data.start_date)}</span>
+      </td>
+    </tr>`);
+  if (data.end_date) detailRows.push(`
+    <tr>
+      <td style="padding: 14px 20px; border-bottom: 1px solid #F3F4F6;">
+        <span style="display: block; color: #9CA3AF; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Fin</span>
+        <span style="color: #111827; font-size: 15px; font-weight: 600;">${formatDate(data.end_date)}</span>
+      </td>
+    </tr>`);
+  if (data.location) detailRows.push(`
+    <tr>
+      <td style="padding: 14px 20px; border-bottom: 1px solid #F3F4F6;">
+        <span style="display: block; color: #9CA3AF; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">Lieu</span>
+        <span style="color: #111827; font-size: 15px; font-weight: 600;">${data.location}</span>
+      </td>
+    </tr>`);
+  if (data.total_eur !== undefined) detailRows.push(`
+    <tr>
+      <td style="padding: 14px 20px; background-color: #FEF2F2;">
+        <table cellpadding="0" cellspacing="0" style="width: 100%;">
+          <tr>
+            <td style="font-size: 14px; color: #111827; font-weight: 600;">Total</td>
+            <td style="text-align: right; font-size: 18px; font-weight: 700; color: #DC2626;">${data.total_eur.toFixed(2)} \u20ac</td>
+          </tr>
+        </table>
+      </td>
+    </tr>`);
+
+  const clientRows: string[] = [];
+  if (data.client_name) clientRows.push(`
+    <tr>
+      <td style="padding: 4px 0; color: #374151; font-size: 13px;"><strong>Nom :</strong></td>
+      <td style="padding: 4px 0 4px 12px; color: #111827; font-size: 13px;">${data.client_name}</td>
+    </tr>`);
+  if (data.client_email) clientRows.push(`
+    <tr>
+      <td style="padding: 4px 0; color: #374151; font-size: 13px;"><strong>Email :</strong></td>
+      <td style="padding: 4px 0 4px 12px; color: #111827; font-size: 13px;"><a href="mailto:${data.client_email}" style="color: #DC2626; text-decoration: none;">${data.client_email}</a></td>
+    </tr>`);
+  if (data.client_phone) clientRows.push(`
+    <tr>
+      <td style="padding: 4px 0; color: #374151; font-size: 13px;"><strong>T\u00e9l :</strong></td>
+      <td style="padding: 4px 0 4px 12px; color: #111827; font-size: 13px;"><a href="tel:${data.client_phone}" style="color: #111827; text-decoration: none;">${data.client_phone}</a></td>
+    </tr>`);
+
   const html = `
-    <div style="background-color: #F9FAFB; padding: 32px 16px; font-family: 'Segoe UI', Arial, Helvetica, sans-serif;">
-      <table align="center" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; margin: 0 auto; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+    <div style="background-color: #F3F4F6; padding: 24px 16px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif;">
+      <table align="center" cellpadding="0" cellspacing="0" style="max-width: 560px; width: 100%; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+        <!-- Header -->
         <tr>
-          <td style="background: linear-gradient(135deg, #DC2626, #EF4444); padding: 28px 32px; text-align: center;">
-            <h1 style="margin: 0; color: #FFFFFF; font-size: 22px; font-weight: 700; letter-spacing: 0.5px;">${fromName}</h1>
-            <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 13px;">Location de v\u00e9hicules \u2022 Marrakech</p>
+          <td style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); padding: 36px 32px 28px; text-align: center;">
+            <h1 style="margin: 0; color: #FFFFFF; font-size: 24px; font-weight: 800; letter-spacing: 1px;">${fromName}</h1>
+            <p style="margin: 6px 0 0; color: rgba(255,255,255,0.8); font-size: 13px; letter-spacing: 0.3px;">Location de v\u00e9hicules \u2022 Marrakech</p>
           </td>
         </tr>
+
+        <!-- Status badge + greeting -->
         <tr>
-          <td style="padding: 32px 32px 8px;">
-            <p style="margin: 0 0 16px; color: #374151; font-size: 15px; line-height: 1.6;">${greeting}</p>
-            <div style="display: inline-block; background-color: ${statusColor}15; color: ${statusColor}; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.3px; text-transform: uppercase;">${label}</div>
+          <td style="padding: 32px 32px 0;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <span style="display: inline-block; background-color: ${statusColor}12; color: ${statusColor}; font-size: 13px; font-weight: 700; padding: 6px 18px; border-radius: 20px; letter-spacing: 0.5px;">
+                ${statusIcon} ${label}
+              </span>
+            </div>
+            <p style="margin: 0 0 4px; color: #111827; font-size: 16px; line-height: 1.6; text-align: center;">${greeting}</p>
+            <p style="margin: 0 0 24px; color: #6B7280; font-size: 14px; line-height: 1.5; text-align: center;">${greetingSub}</p>
           </td>
         </tr>
-        ${rows.length ? `<tr><td style="padding: 16px 32px 8px;"><table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; border: 1px solid #E5E7EB;">${rows.join('')}</table></td></tr>` : ''}
+
+        <!-- Details table -->
+        <tr>
+          <td style="padding: 0 32px;">
+            <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; border: 1px solid #E5E7EB;">
+              ${detailRows.join('')}
+            </table>
+          </td>
+        </tr>
+
+        <!-- Client message -->
         ${data.message ? `
         <tr>
-          <td style="padding: 8px 32px;">
-            <div style="background-color: #FFFBEB; border-left: 3px solid #F59E0B; padding: 12px 16px; border-radius: 0 6px 6px 0;">
-              <p style="margin: 0; color: #92400E; font-size: 13px; font-style: italic;">${data.message}</p>
+          <td style="padding: 16px 32px 0;">
+            <div style="background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 14px 18px; border-radius: 0 10px 10px 0;">
+              <p style="margin: 0 0 4px; color: #92400E; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Message du client</p>
+              <p style="margin: 0; color: #92400E; font-size: 14px; line-height: 1.5;">${data.message}</p>
             </div>
           </td>
         </tr>` : ''}
+
+        <!-- Client contact -->
         <tr>
-          <td style="padding: 16px 32px 32px;">
-            <div style="background-color: #F9FAFB; border-radius: 8px; padding: 16px; border: 1px solid #E5E7EB;">
-              <p style="margin: 0 0 8px; color: #6B7280; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Coordonn\u00e9es client</p>
+          <td style="padding: 24px 32px 32px;">
+            <div style="background-color: #F9FAFB; border-radius: 12px; padding: 20px; border: 1px solid #E5E7EB;">
+              <p style="margin: 0 0 12px; color: #9CA3AF; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Coordonn\u00e9es client</p>
               <table cellpadding="0" cellspacing="0">
-                <tr>
-                  <td style="padding: 2px 8px 2px 0; color: #374151; font-size: 13px;"><strong>Email :</strong></td>
-                  <td style="padding: 2px 0; color: #DC2626; font-size: 13px;"><a href="mailto:${data.client_email}" style="color: #DC2626; text-decoration: none;">${data.client_email}</a></td>
-                </tr>
-                <tr>
-                  <td style="padding: 2px 8px 2px 0; color: #374151; font-size: 13px;"><strong>T\u00e9l :</strong></td>
-                  <td style="padding: 2px 0; color: #374151; font-size: 13px;">${data.client_phone || 'Non renseign\u00e9'}</td>
-                </tr>
+                ${clientRows.join('')}
               </table>
             </div>
           </td>
         </tr>
+
+        <!-- Footer -->
         <tr>
-          <td style="background-color: #F3F4F6; padding: 20px 32px; text-align: center;">
-            <p style="margin: 0; color: #9CA3AF; font-size: 12px;">${fromName} \u2014 Location de v\u00e9hicules \u00e0 Marrakech</p>
-            <p style="margin: 4px 0 0; color: #9CA3AF; font-size: 11px;">Cet email est automatique, merci de ne pas y r\u00e9pondre.</p>
+          <td style="background-color: #111827; padding: 24px 32px; text-align: center;">
+            <p style="margin: 0; color: #9CA3AF; font-size: 13px; font-weight: 600;">${fromName}</p>
+            <p style="margin: 4px 0 0; color: #6B7280; font-size: 12px;">Location de v\u00e9hicules \u2014 Marrakech, Maroc</p>
+            <div style="height: 1px; background-color: #374151; margin: 16px auto; max-width: 200px;"></div>
+            <p style="margin: 0; color: #6B7280; font-size: 11px;">Cet email est automatique, merci de ne pas y r\u00e9pondre.</p>
           </td>
         </tr>
       </table>
@@ -187,30 +266,31 @@ serve(async (req: Request) => {
     if (type === 'test') {
       subject = `Test \u2014 ${fromName}`;
       html = `
-        <div style="background-color: #F9FAFB; padding: 32px 16px; font-family: 'Segoe UI', Arial, Helvetica, sans-serif;">
-          <table align="center" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%; margin: 0 auto; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+        <div style="background-color: #F3F4F6; padding: 24px 16px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif;">
+          <table align="center" cellpadding="0" cellspacing="0" style="max-width: 480px; width: 100%; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
             <tr>
-              <td style="background: linear-gradient(135deg, #DC2626, #EF4444); padding: 28px 32px; text-align: center;">
-                <h1 style="margin: 0; color: #FFFFFF; font-size: 22px; font-weight: 700; letter-spacing: 0.5px;">${fromName}</h1>
-                <p style="margin: 4px 0 0; color: rgba(255,255,255,0.85); font-size: 13px;">Location de v\u00e9hicules \u2022 Marrakech</p>
+              <td style="background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%); padding: 36px 32px 28px; text-align: center;">
+                <h1 style="margin: 0; color: #FFFFFF; font-size: 24px; font-weight: 800; letter-spacing: 1px;">${fromName}</h1>
+                <p style="margin: 6px 0 0; color: rgba(255,255,255,0.8); font-size: 13px; letter-spacing: 0.3px;">Location de v\u00e9hicules \u2022 Marrakech</p>
               </td>
             </tr>
             <tr>
-              <td style="padding: 40px 32px; text-align: center;">
-                <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #DC2626, #EF4444); border-radius: 50%; display: inline-block; line-height: 56px; font-size: 28px; margin-bottom: 16px;">\u2709\uFE0F</div>
-                <h2 style="margin: 0 0 8px; color: #111827; font-size: 18px;">Email de test r\u00e9ussi</h2>
-                <p style="margin: 0; color: #6B7280; font-size: 14px; line-height: 1.6;">Si vous recevez ce message, la configuration SMTP de <strong>${fromName}</strong> est correcte et fonctionnelle.</p>
+              <td style="padding: 48px 32px; text-align: center;">
+                <div style="width: 72px; height: 72px; background: linear-gradient(135deg, #16A34A, #22C55E); border-radius: 50%; display: inline-block; line-height: 72px; font-size: 32px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(22,163,74,0.25);">\u2705</div>
+                <h2 style="margin: 0 0 8px; color: #111827; font-size: 20px; font-weight: 700;">Configuration r\u00e9ussie</h2>
+                <p style="margin: 0; color: #6B7280; font-size: 14px; line-height: 1.7; max-width: 360px; margin: 0 auto;">Si vous recevez ce message, la configuration SMTP de <strong>${fromName}</strong> est correcte et pleinement fonctionnelle.</p>
               </td>
             </tr>
             <tr>
-              <td style="background-color: #F3F4F6; padding: 20px 32px; text-align: center;">
-                <p style="margin: 0; color: #9CA3AF; font-size: 12px;">${fromName} \u2014 Location de v\u00e9hicules \u00e0 Marrakech</p>
+              <td style="background-color: #111827; padding: 24px 32px; text-align: center;">
+                <p style="margin: 0; color: #9CA3AF; font-size: 12px; font-weight: 600;">${fromName}</p>
+                <p style="margin: 4px 0 0; color: #6B7280; font-size: 11px;">Location de v\u00e9hicules \u2014 Marrakech, Maroc</p>
               </td>
             </tr>
           </table>
         </div>`;
     } else if (type === 'reservation_status') {
-      const emailData = buildReservationEmail(status || '', data || {}, fromName, smtpEmail);
+      const emailData = buildReservationEmail(status || '', data || {}, fromName);
       subject = emailData.subject;
       html = emailData.html;
     } else {

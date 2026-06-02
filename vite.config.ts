@@ -9,7 +9,7 @@ import type { ManifestOptions } from 'vite-plugin-pwa'
 const manifest: Partial<ManifestOptions> = {
   name: "INVOLOCATION - Location de voitures",
   short_name: "INVOLOCATION",
-  description: "INVOLOCATION Location Voiture Marrakech Aeroport l'agence de location de voitures partout au Maroc aux meilleurs conditions.",
+  description: "INVOLOCATION Location de Voiture à Marrakech Aéroport et partout au Maroc",
   start_url: "/",
   display: "standalone",
   background_color: "#ffffff",

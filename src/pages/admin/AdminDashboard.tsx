@@ -49,7 +49,7 @@ export default function AdminDashboard() {
 
   return (
     <div>
-      <h1 className="font-poppins text-2xl font-bold text-remons-dark mb-6">Dashboard</h1>
+      <h1 className="font-poppins text-xl sm:text-2xl font-bold text-remons-dark mb-6">Dashboard</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {cards.map((card) => (
           <div key={card.label} className="bg-white rounded-2xl shadow-card p-6">

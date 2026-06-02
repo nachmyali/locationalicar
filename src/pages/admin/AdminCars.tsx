@@ -19,16 +19,16 @@ export default function AdminCars() {
 
   return (
     <div>
-      <h1 className="font-poppins text-2xl font-bold text-remons-dark mb-6">
+      <h1 className="font-poppins text-xl sm:text-2xl font-bold text-remons-dark mb-6">
         Gestion des véhicules
       </h1>
 
-      <div className="flex gap-1 mb-6 border-b border-remons-border">
+      <div className="flex gap-1 mb-6 border-b border-remons-border overflow-x-auto flex-nowrap scrollbar-none">
         {TABS.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
             onClick={() => setTab(id)}
-            className={`flex items-center gap-2 px-4 py-3 text-sm font-inter font-medium border-b-2 transition-colors ${
+            className={`flex items-center gap-2 px-3 sm:px-4 py-3 text-sm font-inter font-medium border-b-2 transition-colors whitespace-nowrap ${
               tab === id
                 ? 'border-remons-primary text-remons-primary'
                 : 'border-transparent text-remons-gray hover:text-remons-dark'

@@ -261,25 +261,27 @@ export default function CarsSection() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
         <p className="text-sm text-remons-gray font-inter">
           {cars.filter(c => c.active).length} voitures actives sur {cars.length}
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={handleExport}
-            className="flex items-center gap-2 border border-remons-border text-remons-dark font-poppins text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-2 border border-remons-border text-remons-dark font-poppins text-sm font-medium px-3 sm:px-4 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
           >
             <Download size={16} />
-            Exporter Excel
+            <span className="hidden sm:inline">Exporter Excel</span>
+            <span className="sm:hidden">Excel</span>
           </button>
           <button
             onClick={handleImportClick}
             disabled={importing}
-            className="flex items-center gap-2 border border-remons-border text-remons-dark font-poppins text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
+            className="flex items-center gap-2 border border-remons-border text-remons-dark font-poppins text-sm font-medium px-3 sm:px-4 py-2.5 rounded-xl hover:bg-gray-50 transition-colors disabled:opacity-50"
           >
             <Upload size={16} />
-            {importing ? 'Importation...' : 'Importer Excel'}
+            {importing ? '...' : <span className="hidden sm:inline">Importer Excel</span>}
+            {importing ? '...' : <span className="sm:hidden">Importer</span>}
           </button>
           <input
             ref={fileRef}
@@ -290,7 +292,7 @@ export default function CarsSection() {
           />
           <button
             onClick={() => { setEditingCar(null); setShowForm(true); setErrorMsg(null); setImportMsg(null); }}
-            className="flex items-center gap-2 bg-remons-primary text-white font-poppins text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-remons-primary-dark transition-colors"
+            className="flex items-center gap-2 bg-remons-primary text-white font-poppins text-sm font-medium px-3 sm:px-4 py-2.5 rounded-xl hover:bg-remons-primary-dark transition-colors"
           >
             <Plus size={16} />
             Ajouter

@@ -41,12 +41,12 @@ export default function AdminReservations() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="font-poppins text-2xl font-bold text-remons-dark">Réservations</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+        <h1 className="font-poppins text-xl sm:text-2xl font-bold text-remons-dark">Réservations</h1>
         <select
           value={statusFilter}
           onChange={(e) => { setStatusFilter(e.target.value); setLoading(true); }}
-          className="border border-remons-border rounded-xl px-4 py-2 text-sm font-inter bg-white focus:outline-none focus:ring-2 focus:ring-remons-primary"
+          className="border border-remons-border rounded-xl px-4 py-2 text-sm font-inter bg-white focus:outline-none focus:ring-2 focus:ring-remons-primary self-start sm:self-auto"
         >
           <option value="all">Tous les statuts</option>
           <option value="new">Nouveau</option>

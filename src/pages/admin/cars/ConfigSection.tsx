@@ -185,25 +185,27 @@ export default function ConfigSection() {
             <input type="text" value={smtpFromName} onChange={(e) => setSmtpFromName(e.target.value)} className="w-full border border-remons-border rounded-xl px-4 py-2.5 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary" />
           </div>
         </div>
-        <div className="mt-4 flex items-center gap-3">
+        <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <input type="email" value={testEmail} onChange={(e) => setTestEmail(e.target.value)}
             placeholder="adresse@test.com"
-            className="flex-1 border border-remons-border rounded-xl px-4 py-2 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
+            className="w-full sm:flex-1 border border-remons-border rounded-xl px-4 py-2 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
           />
-          <button onClick={async () => {
-            setTestStatus('sending');
-            const result = await sendTestEmail(testEmail);
-            setTestStatus(result.ok ? 'ok' : 'error');
-            if (!result.ok) setErrorMsg(result.error || 'Test échoué');
-            setTimeout(() => setTestStatus('idle'), 3000);
-          }} disabled={testStatus === 'sending' || !testEmail}
-            className="flex items-center gap-2 bg-remons-primary text-white font-poppins text-sm font-medium px-4 py-2 rounded-xl hover:bg-remons-primary-dark transition-colors disabled:opacity-50"
-          >
-            <Send size={14} />
-            {testStatus === 'sending' ? 'Envoi...' : 'Test SMTP'}
-          </button>
-          {testStatus === 'ok' && <span className="text-sm text-green-600 font-inter">✓ Email envoyé</span>}
-          {testStatus === 'error' && <span className="text-sm text-red-600 font-inter">✗ Échec</span>}
+          <div className="flex items-center gap-3">
+            <button onClick={async () => {
+              setTestStatus('sending');
+              const result = await sendTestEmail(testEmail);
+              setTestStatus(result.ok ? 'ok' : 'error');
+              if (!result.ok) setErrorMsg(result.error || 'Test échoué');
+              setTimeout(() => setTestStatus('idle'), 3000);
+            }} disabled={testStatus === 'sending' || !testEmail}
+              className="flex items-center gap-2 bg-remons-primary text-white font-poppins text-sm font-medium px-4 py-2 rounded-xl hover:bg-remons-primary-dark transition-colors disabled:opacity-50"
+            >
+              <Send size={14} />
+              {testStatus === 'sending' ? 'Envoi...' : 'Test SMTP'}
+            </button>
+            {testStatus === 'ok' && <span className="text-sm text-green-600 font-inter">✓</span>}
+            {testStatus === 'error' && <span className="text-sm text-red-600 font-inter">✗</span>}
+          </div>
         </div>
       </div>
 

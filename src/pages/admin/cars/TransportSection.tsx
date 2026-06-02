@@ -81,16 +81,16 @@ export default function TransportSection() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
         <p className="text-sm text-remons-gray font-inter">
           {prices.length} trajets configurés sur {locations.length} villes différentes.
         </p>
         <button
           onClick={() => setShowNew(!showNew)}
-          className="flex items-center gap-2 bg-remons-primary text-white font-poppins text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-remons-primary-dark transition-colors"
+          className="flex items-center gap-2 bg-remons-primary text-white font-poppins text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-remons-primary-dark transition-colors self-start sm:self-auto"
         >
           <Plus size={16} />
-          Ajouter un trajet
+          {showNew ? 'Annuler' : 'Ajouter un trajet'}
         </button>
       </div>
 
