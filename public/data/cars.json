@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Dacia Sandero",
+    "category": "CAT A",
+    "price": 30,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Essence",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "name": "Kia Picanto",
+    "category": "CAT A",
+    "price": 30,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Essence",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "name": "Renault Clio 5",
+    "category": "CAT B",
+    "price": 35,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Essence",
+    "image": ""
+  },
+  {
+    "id": 4,
+    "name": "Peugeot 208",
+    "category": "CAT B",
+    "price": 35,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Essence",
+    "image": ""
+  },
+  {
+    "id": 5,
+    "name": "Citroën C3",
+    "category": "CAT B",
+    "price": 35,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Essence",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "name": "Dacia Duster",
+    "category": "CAT C",
+    "price": 45,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "name": "Dacia Lodgy 7 places",
+    "category": "CAT C",
+    "price": 45,
+    "duration": "jour",
+    "seats": 7,
+    "transmission": "Manuelle",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "name": "Peugeot 3008",
+    "category": "CAT D",
+    "price": 70,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Automatique",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": ""
+  },
+  {
+    "id": 9,
+    "name": "Kia Sportage",
+    "category": "CAT D",
+    "price": 70,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Automatique",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": ""
+  },
+  {
+    "id": 10,
+    "name": "DS4",
+    "category": "CAT D",
+    "price": 70,
+    "duration": "jour",
+    "seats": 5,
+    "transmission": "Automatique",
+    "doors": 5,
+    "fuel": "Diesel",
+    "image": ""
+  }
+]
