@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { Car, Receipt, MapPin, Settings2, User } from 'lucide-react';
+import { Car, Receipt, MapPin, Settings2 } from 'lucide-react';
 import CarsSection from './cars/CarsSection';
 import TariffsSection from './cars/TariffsSection';
 import TransportSection from './cars/TransportSection';
 import ConfigSection from './cars/ConfigSection';
-import DriversSection from './cars/DriversSection';
 
 const TABS = [
   { id: 'cars', label: 'Voitures', icon: Car },
   { id: 'tariffs', label: 'Tarifs', icon: Receipt },
   { id: 'transport', label: 'Transport', icon: MapPin },
-  { id: 'drivers', label: 'Chauffeurs', icon: User },
   { id: 'config', label: 'Configuration', icon: Settings2 },
 ] as const;
 
@@ -45,7 +43,6 @@ export default function AdminCars() {
       {tab === 'cars' && <CarsSection />}
       {tab === 'tariffs' && <TariffsSection />}
       {tab === 'transport' && <TransportSection />}
-      {tab === 'drivers' && <DriversSection />}
       {tab === 'config' && <ConfigSection />}
     </div>
   );

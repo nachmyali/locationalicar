@@ -1,30 +1,31 @@
 ﻿{
   "common": {
-    "phone": "+212 644-045555",
-    "email": "contact@yahyacar.ma",
-    "address": "Bld Fouarat CC N°22, Hay Mohammadi, Casablanca",
+    "phone": "0664405566",
+    "email": "contact@locationalicar.com",
+    "address": "13 Rue de la Victoire, Casablanca 20290",
     "close": "Fermer"
   },
   "topbar": {
-    "email": "contact@yahyacar.ma",
-    "address": "Bld Fouarat CC N°22, Hay Mohammadi, Casablanca"
+    "email": "contact@locationalicar.com",
+    "address": "13 Rue de la Victoire, Casablanca 20290"
   },
   "navbar": {
     "home": "Accueil",
     "about": "À Propos",
     "gallery": "Avis Clients",
-    "cars": "Nos Services",
+    "cars": "Nos Véhicules",
     "contact": "Contact",
-    "findCar": "Réserver un Transfert",
-    "brand": "YAHYA",
+    "findCar": "Réserver un Véhicule",
+    "brand": "ALI",
     "brandSub": "car",
     "callUs": "Appelez à tout moment",
     "search": "Rechercher",
     "menu": "Menu"
   },
   "hero": {
-    "subtitle": "YAHYA CAR — CASABLANCA",
-    "title": "Location de Voitures<br/>Qualité et Abordabilité au Maroc",
+    "subtitle": "ALICAR — CASABLANCA",
+    "title": "Location de Voitures<br/>à Casablanca",
+    "description": "Découvrez notre flotte de véhicules récents et confortables. Réservez facilement votre voiture à Casablanca et profitez de tarifs compétitifs, d'une assistance 24h/24 et d'un service professionnel.",
     "pickupLabel": "Lieu de prise en charge",
     "pickupPlaceholder": "Sélectionnez",
     "startDateLabel": "Date de prise en charge",
@@ -43,17 +44,17 @@
     "notSpecifiedF": "Non spécifiée"
   },
   "about": {
-    "subtitle": "À PROPOS DE YAHYA CAR",
-    "title": "Où la qualité rencontre<br/>l'abordabilité",
-    "description": "Nous comprenons l'importance d'un voyage fluide et agréable sans le fardeau des coûts excessifs. Yahya Car vous propose des véhicules de qualité à des tarifs compétitifs, pour une valeur maximale sans compromis.",
+    "subtitle": "À PROPOS DE ALICAR",
+    "title": "Location de voitures<br/>de qualité à Casablanca",
+    "description": "AliCar est votre agence de location de voitures à Casablanca. Nous mettons à votre disposition une flotte de véhicules récents, fiables et parfaitement entretenus. Que ce soit pour un déplacement professionnel, des vacances en famille ou un besoin ponctuel, nous avons la voiture qu'il vous faut. Profitez de tarifs compétitifs, d'une réservation simple et rapide, et d'un service client à votre écoute.",
     "features": {
       "booking": {
-        "title": "Chauffeur Professionnel",
-        "desc": "Des chauffeurs expérimentés, formés à l'excellence du service premium."
+        "title": "Véhicules Récentes",
+        "desc": "Des véhicules récents et bien entretenus pour votre confort et votre sécurité."
       },
       "locations": {
-        "title": "Tout le Maroc",
-        "desc": "Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès et plus encore."
+        "title": "Livraison à Casablanca",
+        "desc": "Casablanca"
       }
     },
     "pickupLabel": "Lieu de prise en charge",
@@ -64,7 +65,7 @@
     "bookNow": "Réserver Maintenant",
     "agency": "Agence",
     "airport": "Aéroport",
-    "consultantAlt": "Consultant professionnel",
+    "consultantAlt": "Conseiller professionnel",
     "bookingTitle": "*Nouvelle Réservation*",
     "carField": "*Véhicule :* ",
     "priceField": "*Prix :* ",
@@ -80,7 +81,7 @@
     "submitErrorMessage": "Erreur pendant l'envoi vers Google Sheet."
   },
   "cars": {
-    "subtitle": "DÉCOUVREZ NOS SERVICES",
+    "subtitle": "DÉCOUVREZ NOTRE FLOTTE",
     "title": "Nos Véhicules<br/>À Votre Service",
     "error": "Impossible de charger les données pour le moment.",
     "modal": {
@@ -113,12 +114,7 @@
     "submitErrorMessage": "Erreur pendant l'envoi vers Google Sheet.",
     "bookNow": "Réserver Maintenant",
     "seats": "Places",
-    "doors": "Portes",
-    "chauffeurOption": "Ajouter un chauffeur",
-    "chauffeurHourly": "À l'heure",
-    "chauffeurHalfDay": "Demi-journée (4h)",
-    "chauffeurFullDay": "Journée (8h)",
-    "chauffeur24h": "24h"
+    "doors": "Portes"
   },
   "gallery": {
     "title": "Ils nous recommandent",
@@ -126,22 +122,22 @@
   },
   "features": {
     "express": {
-      "title": "Services haut de gamme",
-      "desc": "Là où le luxe rencontre un soin exceptionnel, créant des moments inoubliables et dépassant toutes vos attentes."
+      "title": "Véhicules Récentes",
+      "desc": "Une flotte de véhicules récents, bien entretenus et régulièrement contrôlés pour votre sécurité."
     },
     "insurance": {
-      "title": "Assistance routière 24h/24",
-      "desc": "Un soutien fiable quand vous en avez le plus besoin, pour rouler en toute confiance et tranquillité d'esprit."
+      "title": "Assistance 24h/24",
+      "desc": "Un service d'assistance routière disponible à tout moment pour vous dépanner où que vous soyez."
     },
     "support": {
-      "title": "Qualité au meilleur prix",
-      "desc": "Des véhicules de qualité à des tarifs compétitifs, pour une valeur maximale sans compromis."
+      "title": "Tarifs Compétitifs",
+      "desc": "Des prix attractifs avec un excellent rapport qualité-prix, sans aucun frais caché."
     }
   },
   "testimonials": {
-    "testimonial1": "Service impeccable ! Chauffeur ponctuel, véhicule luxueux et conduite parfaite. Une expérience digne des plus grands standards internationaux.",
-    "testimonial2": "J'ai utilisé Yahya Car pour mes déplacements à Casablanca. Un professionnalisme remarquable, je recommande vivement.",
-    "testimonial3": "Transfert aéroport organisé sans aucune difficulté. Accueil chaleureux, confort absolu. Mon nouveau réflexe au Maroc.",
+    "testimonial1": "Service impeccable ! Véhicule récent et très propre. Réservation rapide et personnel accueillant. Une expérience formidable.",
+    "testimonial2": "J'ai loué chez AliCar pour mon séjour à Casablanca. Un professionnalisme remarquable, je recommande vivement.",
+    "testimonial3": "Location de voiture organisée sans aucune difficulté. Accueil chaleureux, confort absolu. Mon nouveau réflexe au Maroc.",
     "role": "Client",
     "prev": "Avis précédent",
     "next": "Avis suivant"
@@ -151,24 +147,24 @@
     "sectionHeading": "Vous avez des questions<br/>sur nos services ?",
     "moreQuestions": "Vous avez d'autres questions ?",
     "contactWhatsApp": "Contactez-nous sur WhatsApp",
-    "q1": "Comment réserver un chauffeur ?",
-    "a1": "La réservation est simple et rapide. Choisissez votre service (transfert aéroport, circuit touristique, transport d'affaires), sélectionnez vos dates et lieux, puis confirmez votre réservation. Notre équipe vous contactera pour finaliser les détails de votre prise en charge.",
+    "q1": "Comment réserver une voiture ?",
+    "a1": "La réservation est simple et rapide. Choisissez le véhicule de votre choix, sélectionnez vos dates de location et de retour, puis confirmez votre réservation. Notre équipe vous contactera pour finaliser les détails de la livraison du véhicule.",
     "q2": "Quels types de véhicules proposez-vous ?",
-    "a2": "Notre flotte premium comprend la Skoda Superb, Skoda Octavia et le Mercedes Vito. Chaque véhicule est soigneusement entretenu et équipé pour votre confort optimal.",
+    "a2": "Notre flotte comprend des véhicules récents et bien entretenus. Chaque voiture est soigneusement inspectée avant chaque location pour votre confort et votre sécurité.",
     "q3": "Puis-je annuler ma réservation ?",
     "a3": "Oui, vous pouvez annuler votre réservation jusqu'à 24 heures avant la prise en charge sans frais. Des frais de 50 % s'appliquent pour les annulations tardives.",
-    "q4": "Quelles villes desservez-vous ?",
-    "a4": "Nous couvrons les principales villes du Maroc : Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès et leurs aéroports. Des destinations supplémentaires peuvent être organisées sur demande."
+    "q4": "Où puis-je récupérer mon véhicule ?",
+    "a4": "Nous livrons le véhicule à Casablanca, à l'aéroport Mohammed V, à votre hôtel ou à votre adresse."
   },
   "footer": {
-    "tagline": "Yahya Car — Où la qualité rencontre l'abordabilité",
-    "copyright": "2026 Yahya Car. Tous droits réservés.",
+    "tagline": "AliCar — Votre partenaire de confiance pour la location de voitures à Casablanca et partout au Maroc.",
+    "copyright": "2026 AliCar. Tous droits réservés.",
     "terms": "Conditions générales",
     "privacy": "Politique de confidentialité",
     "backToTop": "Retour en haut"
   },
   "pwa": {
-    "installTitle": "Installer Yahya Car",
+    "installTitle": "Installer AliCar",
     "installDesc": "Ajoutez à votre écran d'accueil",
     "install": "Installer",
     "close": "Fermer"
@@ -179,19 +175,19 @@
   },
   "legal": {
     "terms": {
-      "title": "Conditions générales - YAHYA CAR",
+      "title": "Conditions générales - ALICAR",
       "sections": [
         {
           "title": "Limite d'âge, conducteurs et documents",
-          "content": "Le conducteur principal et tout conducteur additionnel mentionné sur le contrat sont les seuls autorisés à conduire le véhicule. Ils doivent avoir plus de 21 ans et posséder un permis de conduire valide obtenu depuis au moins un an.\n\nPour bénéficier de nos services de transport avec chauffeur, vous devez présenter un permis de conduire valide et un passeport. Les photocopies ne sont pas acceptées."
+          "content": "Le conducteur principal et tout conducteur additionnel mentionné sur le contrat sont les seuls autorisés à conduire le véhicule. Ils doivent avoir plus de 21 ans et posséder un permis de conduire valide obtenu depuis au moins un an.\n\nPour bénéficier de nos services de location, vous devez présenter un permis de conduire valide et une pièce d'identité. Les photocopies ne sont pas acceptées."
         },
         {
           "title": "Procédure de réservation",
-          "content": "Réserver un véhicule avec Yahya Car au Maroc vous permet de bénéficier d'une location de qualité et de services optionnels tels que la prise en charge et la restitution à une date et un lieu spécifiés pour une durée convenue.\n\nVous pouvez annuler votre réservation à tout moment jusqu'à 24 heures avant la date de prise en charge prévue en nous informant par e-mail ou WhatsApp."
+          "content": "Réserver un véhicule avec AliCar au Maroc vous permet de bénéficier d'une location de qualité et de services optionnels tels que la prise en charge et la restitution à une date et un lieu spécifiés pour une durée convenue.\n\nVous pouvez annuler votre réservation à tout moment jusqu'à 24 heures avant la date de prise en charge prévue en nous informant par e-mail ou WhatsApp."
         },
         {
           "title": "Prise en charge et retour du véhicule",
-          "content": "Yahya Car assure la prise en charge et la restitution à l'aéroport, aux hôtels ou à votre résidence dans toutes les villes où nous opérons.\n\nIl est possible d'être pris en charge dans une ville et déposé dans une autre."
+          "content": "AliCar assure la livraison et la récupération du véhicule à l'aéroport, aux hôtels ou à votre résidence à Casablanca.\n\nIl est possible d'être livré à un endroit et de restituer le véhicule à un autre."
         },
         {
           "title": "Véhicule",
@@ -199,11 +195,11 @@
         },
         {
           "title": "Utilisation du service",
-          "content": "Vous devez utiliser le service de transport conformément aux lois et règlements du Maroc. Le chauffeur mis à disposition est un professionnel qualifié qui respecte le code de la route et les règles de sécurité.\n\nL'utilisation du véhicule en dehors du Maroc n'est pas autorisée.\n\nSi vous souhaitez prolonger la durée de votre service, veuillez nous en informer dès que possible, au moins 24 heures à l'avance."
+          "content": "Vous devez utiliser le véhicule conformément aux lois et règlements du Maroc.\n\nL'utilisation du véhicule en dehors du Maroc n'est pas autorisée.\n\nSi vous souhaitez prolonger la durée de votre location, veuillez nous en informer dès que possible, au moins 24 heures à l'avance."
         },
         {
           "title": "Comportement inacceptable",
-          "content": "Yahya Car peut refuser de vous fournir un service si vous manifestez un comportement discourtois ou inacceptable, comme conduire sous l'influence de l'alcool ou des drogues, ou vous comporter de manière impolie envers un chauffeur ou un représentant de l'agence."
+          "content": "AliCar peut refuser de vous fournir un service si vous manifestez un comportement discourtois ou inacceptable, comme conduire sous l'influence de l'alcool ou des drogues, ou vous comporter de manière impolie envers un représentant de l'agence."
         },
         {
           "title": "Méthodes de paiement",
@@ -211,11 +207,11 @@
         },
         {
           "title": "Prépaiements et dépôts de garantie",
-          "content": "Un prépaiement peut être demandé pour confirmer certaines réservations. Le montant vous sera communiqué lors de la confirmation de votre service."
+          "content": "Un prépaiement peut être demandé pour confirmer certaines réservations. Le montant vous sera communiqué lors de la confirmation de votre réservation."
         },
         {
           "title": "Accidents et dommages",
-          "content": "En cas d'accident ou de dommage au véhicule, même s'il n'y a pas de tiers impliqué, vous devez immédiatement notifier la police et Yahya Car dans les 48 heures.\n\nPour les dommages mineurs constatés, aucune facturation supplémentaire ne sera appliquée."
+          "content": "En cas d'accident ou de dommage au véhicule, même s'il n'y a pas de tiers impliqué, vous devez immédiatement notifier la police et AliCar dans les 48 heures.\n\nPour les dommages mineurs constatés, aucune facturation supplémentaire ne sera appliquée."
         },
         {
           "title": "Assurance",
@@ -224,9 +220,9 @@
       ]
     },
     "privacy": {
-      "title": "Politique de confidentialité - YAHYA CAR",
+      "title": "Politique de confidentialité - ALICAR",
       "updated": "Dernière mise à jour le 1er juin 2026",
-      "intro": "Cet avis de confidentialité pour YAHYA CAR ('nous', 'notre' ou 'nos') décrit comment et pourquoi nous pourrions collecter, stocker, utiliser et/ou partager vos informations lorsque vous utilisez nos services, par exemple lorsque vous visitez notre site web à https://yahyacar.ma ou tout autre site web de notre société qui renvoie à cet avis de confidentialité.",
+      "intro": "Cet avis de confidentialité pour ALICAR ('nous', 'notre' ou 'nos') décrit comment et pourquoi nous pourrions collecter, stocker, utiliser et/ou partager vos informations lorsque vous utilisez nos services, par exemple lorsque vous visitez notre site web à https://locationalicar.com ou tout autre site web de notre société qui renvoie à cet avis de confidentialité.",
       "sections": [
         {
           "title": "Résumé des points clés",
@@ -266,7 +262,7 @@
         },
         {
           "title": "9. Comment pouvez-vous nous contacter au sujet de cet avis ?",
-          "content": "Si vous avez des questions ou des commentaires sur le présent avis, vous pouvez nous contacter par courrier à l'adresse suivante : YAHYA CAR, Bld Fouarat CC N°22, Hay Mohammadi, Casablanca, Maroc — contact@yahyacar.ma"
+          "content": "Si vous avez des questions ou des commentaires sur le présent avis, vous pouvez nous contacter par courrier à l'adresse suivante : ALICAR, 13 Rue de la Victoire, Casablanca 20290, Maroc — contact@locationalicar.com"
         }
       ]
     }

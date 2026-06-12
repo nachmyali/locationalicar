@@ -1,4 +1,4 @@
-const SUPABASE_EDGE_URL = 'https://mceegdufnetfkfdyuaic.supabase.co/functions/v1/send-email';
+const SUPABASE_EDGE_URL = 'https://suvsudggaozxqtsxqwxq.supabase.co/functions/v1/send-email';
 const DEV_PROXY_URL = '/api/send-email';
 
 function getEndpoint(): string {

@@ -7,13 +7,13 @@ import { VitePWA } from 'vite-plugin-pwa'
 import type { ManifestOptions } from 'vite-plugin-pwa'
 
 const manifest: Partial<ManifestOptions> = {
-  name: "Yahya Car — Location de voitures",
-  short_name: "Yahya Car",
-  description: "Yahya Car — Location de voitures au Maroc : Casablanca, Marrakech, Rabat. Qualité et abordabilité.",
+  name: "AliCar — Location de voitures",
+  short_name: "AliCar",
+  description: "AliCar — Location de voitures au Maroc : Casablanca, Marrakech, Rabat. Qualité et abordabilité.",
   start_url: "/",
   display: "standalone",
   background_color: "#ffffff",
-  theme_color: "#2ecc71",
+  theme_color: "#3BB8FF",
   lang: "fr",
   icons: [
     {
@@ -71,7 +71,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api/send-email': {
-        target: 'https://mceegdufnetfkfdyuaic.supabase.co/functions/v1/send-email',
+        target: 'https://suvsudggaozxqtsxqwxq.supabase.co/functions/v1/send-email',
         changeOrigin: true,
         rewrite: () => '',
       },

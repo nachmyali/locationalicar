@@ -2,13 +2,6 @@ import { useCurrency, convertPrice } from '@/lib/currency';
 import type { Reservation } from '@/lib/supabase';
 import { Trash2 } from 'lucide-react';
 
-const CHAUFFEUR_LABELS: Record<string, string> = {
-  hourly: 'À l\'heure',
-  half_day: 'Demi-journée',
-  full_day: 'Journée',
-  '24h': '24h',
-};
-
 interface ReservationTableProps {
   reservations: Reservation[];
   loading: boolean;
@@ -59,7 +52,6 @@ export default function ReservationTable({ reservations, loading, onStatusChange
             <th className="text-left py-3 px-3 font-semibold text-remons-dark">Voiture</th>
             <th className="text-left py-3 px-3 font-semibold text-remons-dark">Du</th>
             <th className="text-left py-3 px-3 font-semibold text-remons-dark">Au</th>
-            <th className="text-left py-3 px-3 font-semibold text-remons-dark">Chauffeur</th>
             <th className="text-right py-3 px-3 font-semibold text-remons-dark">Total</th>
             <th className="text-center py-3 px-3 font-semibold text-remons-dark">Statut</th>
             <th className="text-center py-3 px-3 font-semibold text-remons-dark">Action</th>
@@ -85,18 +77,6 @@ export default function ReservationTable({ reservations, loading, onStatusChange
               </td>
               <td className="py-3 px-3 text-remons-gray whitespace-nowrap">
                 {new Date(res.end_date).toLocaleDateString('fr-FR')}
-              </td>
-              <td className="py-3 px-3 whitespace-nowrap">
-                {res.chauffeur_enabled ? (
-                  <div className="text-remons-dark">
-                    <span className="font-medium">{CHAUFFEUR_LABELS[res.chauffeur_type ?? ''] || res.chauffeur_type}</span>
-                    <span className="text-remons-gray text-xs ml-1">
-                      {res.chauffeur_price != null ? `${convertPrice(res.chauffeur_price, currency.code)} ${currency.symbol}` : ''}
-                    </span>
-                  </div>
-                ) : (
-                  <span className="text-remons-gray text-xs">—</span>
-                )}
               </td>
               <td className="py-3 px-3 text-right font-medium text-remons-dark whitespace-nowrap">
                 {convertPrice(res.total_eur, currency.code)} {currency.symbol}

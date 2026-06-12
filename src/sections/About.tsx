@@ -37,10 +37,10 @@ export default function About() {
             {/* Subtitle */}
             <div className="flex items-center gap-3 mb-4 animate-item">
               <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
-                <path d="M2 12c0-4 3-7 7-7h5c3 0 5 1.5 6 4" stroke="#2ecc71" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                <circle cx="8" cy="12" r="3" stroke="#2ecc71" strokeWidth="1.5" fill="none"/>
-                <circle cx="24" cy="12" r="3" stroke="#2ecc71" strokeWidth="1.5" fill="none"/>
-                <path d="M6 10l-2-5" stroke="#2ecc71" strokeWidth="1.5" fill="none"/>
+                <path d="M2 12c0-4 3-7 7-7h5c3 0 5 1.5 6 4" stroke="#3BB8FF" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                <circle cx="8" cy="12" r="3" stroke="#3BB8FF" strokeWidth="1.5" fill="none"/>
+                <circle cx="24" cy="12" r="3" stroke="#3BB8FF" strokeWidth="1.5" fill="none"/>
+                <path d="M6 10l-2-5" stroke="#3BB8FF" strokeWidth="1.5" fill="none"/>
               </svg>
               <span className="text-remons-primary text-[13px] font-inter font-medium uppercase tracking-wider">
                 {t('about.subtitle')}
@@ -73,24 +73,24 @@ export default function About() {
             <div className="animate-item mt-10">
               <div className="flex items-center gap-3 mb-4">
                 <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
-                  <path d="M2 12c0-4 3-7 7-7h5c3 0 5 1.5 6 4" stroke="#2ecc71" strokeWidth="2" fill="none" strokeLinecap="round"/>
-                  <circle cx="8" cy="12" r="3" stroke="#2ecc71" strokeWidth="1.5" fill="none"/>
-                  <circle cx="24" cy="12" r="3" stroke="#2ecc71" strokeWidth="1.5" fill="none"/>
-                  <path d="M6 10l-2-5" stroke="#2ecc71" strokeWidth="1.5" fill="none"/>
+                  <path d="M2 12c0-4 3-7 7-7h5c3 0 5 1.5 6 4" stroke="#3BB8FF" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                  <circle cx="8" cy="12" r="3" stroke="#3BB8FF" strokeWidth="1.5" fill="none"/>
+                  <circle cx="24" cy="12" r="3" stroke="#3BB8FF" strokeWidth="1.5" fill="none"/>
+                  <path d="M6 10l-2-5" stroke="#3BB8FF" strokeWidth="1.5" fill="none"/>
                 </svg>
                 <span className="text-remons-primary text-[13px] font-inter font-medium uppercase tracking-wider">
                   NOS ATOUTS
                 </span>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
-                {['Chauffeur professionnel', 'Véhicules premium', 'Ponctualité garantie', 'Service personnalisé', 'Devis gratuit', 'Assistance 24/7'].map((tag) => (
+                {['Véhicules récents', 'Prix compétitifs', 'Réservation rapide', 'Kilométrage flexible', 'Assistance 24h/24', 'Service client réactif'].map((tag) => (
                   <span key={tag} className="inline-block bg-remons-primary/10 text-remons-primary text-xs font-medium px-3 py-1.5 rounded-full border border-remons-primary/20">
                     {tag}
                   </span>
                 ))}
               </div>
               <p className="text-remons-gray text-sm font-inter leading-relaxed mb-4">
-                Service disponible à Casablanca, Marrakech, Rabat, Tanger, Agadir et Fès. Prise en charge à l'aéroport, à l'hôtel ou à votre résidence.
+                Livraison et récupération du véhicule à Casablanca, à l'aéroport Mohammed V, à votre hôtel ou à votre adresse.
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-remons-gray font-inter text-sm">WhatsApp :</span>
@@ -100,7 +100,7 @@ export default function About() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-remons-primary text-white text-sm font-medium px-4 py-2 rounded-xl hover:bg-remons-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg shadow-button"
                 >
-                  +212 644-045555
+                  0664405566
                 </a>
               </div>
             </div>

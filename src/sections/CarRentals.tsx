@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useCurrency, convertPrice } from '@/lib/currency';
-import { supabase, type TransportPrice, type DriverSettings } from '@/lib/supabase';
+import { supabase, type TransportPrice } from '@/lib/supabase';
 import { sendReservationEmail } from '@/lib/email';
 
 interface Car {
@@ -109,10 +109,10 @@ function buildTransportMap(data: TransportPrice[]): Record<string, number> {
   return map;
 }
 
-const PHONE = '212644045555';
+const PHONE = '21264405566';
 
   function BookingModal({
-  car, tariffs, transportPrices, locations, seasonStart, seasonEnd, driverSettings,
+  car, tariffs, transportPrices, locations, seasonStart, seasonEnd,
   onClose,
   }: {
     car: Car;
@@ -121,7 +121,6 @@ const PHONE = '212644045555';
     locations: string[];
     seasonStart: string;
     seasonEnd: string;
-    driverSettings: DriverSettings | null;
     onClose: () => void;
   }) {
   const { t } = useTranslation();
@@ -138,9 +137,6 @@ const PHONE = '212644045555';
   });
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [chauffeurEnabled, setChauffeurEnabled] = useState(false);
-  const [chauffeurType, setChauffeurType] = useState<'hourly' | 'half_day' | 'full_day' | '24h'>('hourly');
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -150,17 +146,8 @@ const PHONE = '212644045555';
   const bracket = getBracket(car.category, days, tariffs);
   const dailyRateEUR = bracket ? (season === 'haute' ? bracket.haute : bracket.normal) : 0;
   const transportEUR = transportPrices[form.deliveryLocation] ?? 0;
-  const chauffeurEnabledActual = chauffeurEnabled && driverSettings?.enabled;
-  const CHAUFFEUR_DAILY_RATES = {
-    hourly: 10,
-    half_day: 25,
-    full_day: 40,
-    '24h': 80,
-  } as const;
-  const chauffeurDailyRate = chauffeurEnabledActual ? CHAUFFEUR_DAILY_RATES[chauffeurType] : 0;
-  const chauffeurEUR = chauffeurDailyRate * days;
   const rentalTotalEUR = dailyRateEUR * days;
-  const totalEUR = rentalTotalEUR + transportEUR + chauffeurEUR;
+  const totalEUR = rentalTotalEUR + transportEUR;
   const symbol = currency.symbol;
   const dailyRate = convertPrice(dailyRateEUR, currency.code);
   const transportPrice = convertPrice(transportEUR, currency.code);
@@ -171,7 +158,6 @@ const PHONE = '212644045555';
     e.preventDefault();
     setSubmitMessage(null);
 
-    const chauffeurLabel = ({ hourly: t('cars.chauffeurHourly'), half_day: t('cars.chauffeurHalfDay'), full_day: t('cars.chauffeurFullDay'), '24h': t('cars.chauffeur24h') })[chauffeurType];
     const message = [
       'Nouvelle réservation',
       ``,
@@ -185,11 +171,7 @@ const PHONE = '212644045555';
       `Prise en charge : ${form.pickupLocation || '-'}`,
       `Livraison : ${form.deliveryLocation || '-'}`,
       ``,
-      `Chauffeur : ${chauffeurEnabledActual ? 'Oui' : 'Non'}`,
-      ...(chauffeurEnabledActual ? [`Type : ${chauffeurLabel}`] : []),
-      ``,
-      `Prix véhicule : ${rentalTotal} ${symbol}`,
-      ...(chauffeurEnabledActual ? [`Prix chauffeur : ${convertPrice(chauffeurEUR, currency.code)} ${symbol}`] : []),
+      `Prix : ${rentalTotal} ${symbol}`,
       `Total : ${total} ${symbol}`,
     ].join('\n');
 
@@ -209,9 +191,6 @@ const PHONE = '212644045555';
         end_date: form.endDate,
         location: `${form.pickupLocation} → ${form.deliveryLocation}`,
         transport_eur: transportEUR,
-        chauffeur_enabled: chauffeurEnabledActual,
-        chauffeur_type: chauffeurEnabledActual ? chauffeurType : null,
-        chauffeur_price: chauffeurEnabledActual ? chauffeurEUR : null,
         season: season,
         duration_days: days,
         daily_rate_eur: dailyRateEUR,
@@ -221,7 +200,7 @@ const PHONE = '212644045555';
 
       if (error) throw new Error(error.message);
       setSubmitted(true);
-      sendReservationEmail('contact@yahyacar.ma', 'new', {
+      sendReservationEmail('contact@locationalicar.com', 'new', {
         client_name: form.name,
         client_email: form.email,
         client_phone: form.phone,
@@ -243,8 +222,8 @@ const PHONE = '212644045555';
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
         <div className="relative w-full max-w-md bg-white rounded-3xl p-10 shadow-elevated text-center">
-          <div className="w-16 h-16 rounded-full bg-[#2ecc71]/10 flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-[#2ecc71]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <div className="w-16 h-16 rounded-full bg-[#3BB8FF]/10 flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-[#3BB8FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
@@ -252,7 +231,7 @@ const PHONE = '212644045555';
             Réservation confirmée
           </h3>
           <p className="text-remons-gray text-sm font-inter leading-relaxed mb-6">
-            Votre demande de réservation a bien été enregistrée. Notre équipe va la vérifier et vous contacter dans les plus brefs délais pour confirmer votre réservation. Merci de votre confiance et à bientôt chez Yahya Car.
+            Votre demande de réservation a bien été enregistrée. Notre équipe va la vérifier et vous contacter dans les plus brefs délais pour confirmer votre réservation. Merci de votre confiance et à bientôt chez AliCar.
           </p>
           <button
             onClick={onClose}
@@ -383,54 +362,7 @@ const PHONE = '212644045555';
             </div>
           </div>
 
-          {driverSettings?.enabled && (
-            <div className="bg-gradient-to-br from-remons-dark/5 to-remons-primary/5 rounded-xl p-4 space-y-3 border border-remons-primary/10 shadow-sm">
-              <label className="flex items-center justify-between cursor-pointer">
-                <span className="text-sm font-inter font-medium text-remons-dark flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-remons-primary" />
-                  {t('cars.chauffeurOption')}
-                </span>
-                <button
-                  type="button"
-                  role="switch"
-                  aria-checked={chauffeurEnabled}
-                  onClick={() => setChauffeurEnabled(!chauffeurEnabled)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-remons-primary/50 ${
-                    chauffeurEnabled ? 'bg-remons-primary' : 'bg-remons-border'
-                  }`}
-                >
-                  <span
-                    className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform duration-200 ${
-                      chauffeurEnabled ? 'translate-x-[22px]' : 'translate-x-[2px]'
-                    }`}
-                  />
-                </button>
-              </label>
-              {chauffeurEnabled && (
-                <div className="grid grid-cols-2 gap-2">
-                  {([
-                    { value: 'hourly', label: t('cars.chauffeurHourly') },
-                    { value: 'half_day', label: t('cars.chauffeurHalfDay') },
-                    { value: 'full_day', label: t('cars.chauffeurFullDay') },
-                    { value: '24h', label: t('cars.chauffeur24h') },
-                  ] as const).map((opt) => (
-                    <button
-                      type="button"
-                      key={opt.value}
-                      onClick={() => setChauffeurType(opt.value)}
-                      className={`flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl cursor-pointer border-2 transition-all duration-200 text-sm font-inter font-medium ${
-                        chauffeurType === opt.value
-                          ? 'border-remons-primary bg-remons-primary text-white shadow-button'
-                          : 'border-remons-border bg-white text-remons-dark hover:border-remons-primary/40 hover:bg-remons-primary/5'
-                      }`}
-                    >
-                      {opt.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+
 
           <div className="bg-remons-light-gray rounded-xl p-4 space-y-1.5">
             <p className="text-xs font-inter font-semibold text-remons-dark uppercase tracking-wider">
@@ -460,13 +392,7 @@ const PHONE = '212644045555';
                 <span className="font-medium">Gratuit</span>
               </div>
             )}
-            {chauffeurEnabledActual && chauffeurEUR > 0 && (
-              <div className="flex justify-between text-sm font-inter text-remons-dark">
-                <span>Chauffeur ({({ hourly: t('cars.chauffeurHourly'), half_day: t('cars.chauffeurHalfDay'), full_day: t('cars.chauffeurFullDay'), '24h': t('cars.chauffeur24h') })[chauffeurType]} × {days} j)</span>
-                <span className="font-medium">{convertPrice(chauffeurEUR, currency.code)} {symbol}</span>
-              </div>
-            )}
-            {(dailyRateEUR > 0 && days > 0) || (transportPrice > 0) || (chauffeurEUR > 0) ? (
+            {(dailyRateEUR > 0 && days > 0) || transportPrice > 0 ? (
               <div className="border-t border-remons-border pt-1.5 mt-1.5 flex justify-between text-sm font-inter font-bold text-remons-primary">
                 <span>Total</span>
                 <span>{total} {symbol}</span>
@@ -519,7 +445,6 @@ export default function CarRentals() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
-  const [driverSettings, setDriverSettings] = useState<DriverSettings | null>(null);
 
   function getCurrentSeason(): 'normal' | 'haute' {
     const today = new Date().toISOString().split('T')[0];
@@ -531,12 +456,11 @@ export default function CarRentals() {
   useEffect(() => {
     async function loadData() {
       try {
-        const [carsResult, tariffsResult, transportResult, settingsResult, driversResult] = await Promise.all([
+        const [carsResult, tariffsResult, transportResult, settingsResult] = await Promise.all([
           supabase.from('cars').select('*').eq('active', true).order('id'),
           supabase.from('tariffs').select('*'),
           supabase.from('transport_prices').select('*'),
           supabase.from('settings').select('*'),
-          supabase.from('drivers_settings').select('*').maybeSingle(),
         ]);
 
         if (carsResult.error) throw new Error(carsResult.error.message);
@@ -561,9 +485,6 @@ export default function CarRentals() {
           const end = s.find((x: { key: string }) => x.key === 'haute_saison_end');
           if (start) setSeasonStart(start.value);
           if (end) setSeasonEnd(end.value);
-        }
-        if (!driversResult.error && driversResult.data) {
-          setDriverSettings(driversResult.data);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load data');
@@ -698,7 +619,6 @@ export default function CarRentals() {
           locations={locations}
           seasonStart={seasonStart}
           seasonEnd={seasonEnd}
-          driverSettings={driverSettings}
           onClose={() => setSelectedCar(null)}
         />
       )}

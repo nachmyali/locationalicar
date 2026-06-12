@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { supabase, type Tariff, CATEGORIES } from '@/lib/supabase';
-import { Edit2, Save, X } from 'lucide-react';
+import { Edit2, Save, X, Download, Upload } from 'lucide-react';
 import { useCurrency, currencies, convertPrice, convertToEUR } from '@/lib/currency';
+import * as XLSX from 'xlsx';
 
 export default function TariffsSection() {
   const [tariffs, setTariffs] = useState<Tariff[]>([]);
@@ -10,6 +11,62 @@ export default function TariffsSection() {
   const [editForm, setEditForm] = useState<Partial<Tariff>>({});
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const { currency, setCurrency } = useCurrency();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const exportXlsx = () => {
+    const data = tariffs.map(t => ({
+      Catégorie: t.category,
+      'Durée min (jours)': t.min_days,
+      'Durée max (jours)': t.max_days === 999 ? 21 : t.max_days,
+      'Prix normal (EUR)': t.normal_rate,
+      'Prix haute saison (EUR)': t.haute_rate,
+    }));
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(data);
+    XLSX.utils.book_append_sheet(wb, ws, 'Tarifs');
+    XLSX.writeFile(wb, 'tarifs.xlsx');
+  };
+
+  const importXlsx = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      try {
+        setErrorMsg(null);
+        const wb = XLSX.read(ev.target?.result, { type: 'binary' });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json<{
+          Catégorie: string;
+          'Durée min (jours)': number;
+          'Durée max (jours)': number;
+          'Prix normal (EUR)': number;
+          'Prix haute saison (EUR)': number;
+        }>(ws);
+
+        for (const row of rows) {
+          if (!row.Catégorie || row['Durée min (jours)'] == null) continue;
+          const existing = tariffs.find(
+            t => t.category === row.Catégorie && t.min_days === row['Durée min (jours)']
+          );
+          if (existing) {
+            await supabase.from('tariffs').update({
+              normal_rate: row['Prix normal (EUR)'],
+              haute_rate: row['Prix haute saison (EUR)'],
+              max_days: row['Durée max (jours)'],
+            }).eq('id', existing.id);
+          }
+        }
+
+        const { data } = await supabase.from('tariffs').select('*').order('category').order('min_days');
+        if (data) setTariffs(data);
+      } catch {
+        setErrorMsg('Erreur lors de l\'import du fichier.');
+      }
+    };
+    reader.readAsBinaryString(file);
+    e.target.value = '';
+  };
 
   useEffect(() => {
     Promise.all([
@@ -71,10 +128,23 @@ export default function TariffsSection() {
 
   return (
     <div>
-      <p className="text-sm text-remons-gray font-inter mb-4">
-        Grille tarifaire par catégorie et durée de location.
-        Les prix sont en euros par jour. Affichés en {currency.label} ({currency.symbol}).
-      </p>
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <p className="text-sm text-remons-gray font-inter">
+          Grille tarifaire par catégorie et durée de location.
+          Les prix sont en euros par jour. Affichés en {currency.label} ({currency.symbol}).
+        </p>
+        <div className="flex gap-2">
+          <button onClick={exportXlsx} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-inter font-medium text-white bg-remons-primary rounded-xl hover:opacity-90 transition-opacity">
+            <Download size={14} />
+            Exporter XLSX
+          </button>
+          <button onClick={() => fileInputRef.current?.click()} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-inter font-medium text-remons-primary border border-remons-primary rounded-xl hover:bg-remons-light-gray transition-colors">
+            <Upload size={14} />
+            Importer XLSX
+          </button>
+          <input ref={fileInputRef} type="file" accept=".xlsx,.xls" onChange={importXlsx} className="hidden" />
+        </div>
+      </div>
 
       {errorMsg && (
         <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-remons-primary font-inter">

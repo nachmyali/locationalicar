@@ -66,7 +66,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ### Compte admin unique
 
-- **Email :** `contact@yahyacar.ma`
+- **Email :** `contact@locationalicar.com`
 - **Mot de passe :** `066790249`
 - Créé via `scripts/seed.mjs` avec `email_confirm: true`
 - Lié à la table `admin_profiles` via `auth.users.id`
@@ -135,9 +135,6 @@ CREATE TABLE IF NOT EXISTS reservations (
   daily_rate_eur   NUMERIC NOT NULL,
   rental_total_eur NUMERIC NOT NULL,
   total_eur        NUMERIC NOT NULL,
-  chauffeur_enabled BOOLEAN DEFAULT false,
-  chauffeur_type    TEXT DEFAULT NULL,
-  chauffeur_price   NUMERIC DEFAULT NULL,
   status           TEXT DEFAULT 'new' CHECK (status IN ('new','contacted','confirmed','cancelled')),
   created_at       TIMESTAMPTZ DEFAULT NOW(),
   updated_at       TIMESTAMPTZ DEFAULT NOW()
@@ -179,20 +176,6 @@ CREATE TABLE IF NOT EXISTS franchises (
   updated_at TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE(category)
 );
-
--- 8. Drivers settings (chauffeur privé)
-CREATE TABLE IF NOT EXISTS drivers_settings (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  enabled BOOLEAN NOT NULL DEFAULT true,
-  price_per_hour NUMERIC NOT NULL DEFAULT 10,
-  half_day_price NUMERIC NOT NULL DEFAULT 40,
-  full_day_price NUMERIC NOT NULL DEFAULT 70,
-  price_24h NUMERIC NOT NULL DEFAULT 120,
-  airport_extra NUMERIC NOT NULL DEFAULT 15,
-  night_extra NUMERIC NOT NULL DEFAULT 20,
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW()
-);
 ```
 
 ### Schéma relationnel simplifié
@@ -205,7 +188,6 @@ cars, tariffs, franchises     → liés par category ('CAT A'…'CAT D')
 reservations                  → table autonome (contient les données dénormalisées)
 settings                      → key-value global
 transport_prices              → from_location → to_location avec prix
-drivers_settings              → ligne unique de configuration chauffeur
 ```
 
 ---
@@ -331,25 +313,6 @@ CREATE POLICY "franchises_delete_admin" ON franchises FOR DELETE USING (
 );
 ```
 
-### 5.7 — Table `drivers_settings`
-
-```sql
-ALTER TABLE drivers_settings ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "drivers_settings_select_public" ON drivers_settings FOR SELECT USING (true);
-CREATE POLICY "drivers_settings_insert_admin" ON drivers_settings FOR INSERT WITH CHECK (
-  auth.role() = 'authenticated' AND EXISTS (SELECT 1 FROM admin_profiles WHERE id = auth.uid())
-);
-CREATE POLICY "drivers_settings_update_admin" ON drivers_settings FOR UPDATE USING (
-  auth.role() = 'authenticated' AND EXISTS (SELECT 1 FROM admin_profiles WHERE id = auth.uid())
-);
-CREATE POLICY "drivers_settings_delete_admin" ON drivers_settings FOR DELETE USING (
-  auth.role() = 'authenticated' AND EXISTS (SELECT 1 FROM admin_profiles WHERE id = auth.uid())
-);
-
-GRANT ALL ON TABLE drivers_settings TO anon, authenticated, service_role;
-```
-
 ---
 
 ## 6. Storage Buckets
@@ -472,7 +435,7 @@ node scripts/seed.mjs
 
 | Champ | Valeur |
 |---|---|
-| Email | `contact@yahyacar.ma` |
+| Email | `contact@locationalicar.com` |
 | Mot de passe | `066790249` |
 | Profil | `{ name: 'Admin Yahya Car' }` |
 
@@ -660,7 +623,7 @@ proxy: {
 
 ## À propos — Yahya Car
 
-**Site web :** [yahyacar.ma](https://yahyacar.ma)
+**Site web :** [locationalicar.com](https://locationalicar.com)
 
 **Slogan :** Où la qualité rencontre l'abordabilité.
 
@@ -675,5 +638,5 @@ proxy: {
 |---|---|
 | Adresse | Bld Fouarat CC N°22, Hay Mohammadi, Casablanca |
 | Téléphone | `+212 644-045555` |
-| Email | `contact@yahyacar.ma` |
-| Site web | `https://yahyacar.ma` |
+| Email | `contact@locationalicar.com` |
+| Site web | `https://locationalicar.com` |

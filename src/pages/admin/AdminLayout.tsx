@@ -45,7 +45,7 @@ export default function AdminLayout() {
       }`}>
         <div className="p-4 border-b border-remons-border flex items-center justify-between">
           <span className="font-poppins text-sm font-bold text-remons-dark truncate">
-            Yahya Car
+            AliCar
           </span>
           <button
             onClick={() => setMobileOpen(false)}
@@ -90,7 +90,7 @@ export default function AdminLayout() {
         <div className="p-4 border-b border-remons-border flex items-center justify-between">
           {sidebarOpen && (
             <span className="font-poppins text-sm font-bold text-remons-dark truncate">
-              Yahya Car
+              AliCar
             </span>
           )}
           <button

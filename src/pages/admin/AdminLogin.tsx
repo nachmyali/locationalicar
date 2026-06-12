@@ -35,7 +35,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-card p-8">
         <div className="text-center mb-8">
           <h1 className="font-poppins text-2xl font-bold text-remons-dark">Administration</h1>
-          <p className="text-remons-gray text-sm font-inter mt-1">Yahya Car</p>
+          <p className="text-remons-gray text-sm font-inter mt-1">AliCar</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -49,7 +49,7 @@ export default function AdminLogin() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-              placeholder="contact@yahyacar.ma"
+              placeholder="contact@locationalicar.com"
             />
           </div>
 

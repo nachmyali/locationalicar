@@ -1,30 +1,31 @@
 ﻿{
   "common": {
-    "phone": "+212 644-045555",
-    "email": "contact@yahyacar.ma",
-    "address": "Bld Fouarat CC N°22, Hay Mohammadi, Casablanca",
+    "phone": "0664405566",
+    "email": "contact@locationalicar.com",
+    "address": "13 Rue de la Victoire, Casablanca 20290",
     "close": "Close"
   },
   "topbar": {
-    "email": "contact@yahyacar.ma",
-    "address": "Bld Fouarat CC N°22, Hay Mohammadi, Casablanca"
+    "email": "contact@locationalicar.com",
+    "address": "13 Rue de la Victoire, Casablanca 20290"
   },
   "navbar": {
     "home": "Home",
     "about": "About",
     "gallery": "Reviews",
-    "cars": "Services",
+    "cars": "Our Cars",
     "contact": "Contact",
-    "findCar": "Book a Transfer",
-    "brand": "YAHYA",
+    "findCar": "Book a Vehicle",
+    "brand": "ALI",
     "brandSub": "car",
     "callUs": "Call us anytime",
     "search": "Search",
     "menu": "Menu"
   },
   "hero": {
-    "subtitle": "YAHYA CAR — CASABLANCA",
-    "title": "Car Rental<br/>Quality and Affordability in Morocco",
+    "subtitle": "ALICAR — CASABLANCA",
+    "title": "Car Rental<br/>in Casablanca",
+    "description": "Discover our fleet of modern and comfortable vehicles. Easily book your car in Casablanca and enjoy competitive rates, 24/7 roadside assistance, and professional service.",
     "pickupLabel": "Pick-up Location",
     "pickupPlaceholder": "Select",
     "startDateLabel": "Pick-up Date",
@@ -43,17 +44,17 @@
     "notSpecifiedF": "Not specified"
   },
   "about": {
-    "subtitle": "ABOUT YAHYA CAR",
-    "title": "Where quality meets<br/>affordability",
-    "description": "We understand the importance of a smooth and enjoyable journey without the burden of excessive costs. Yahya Car offers quality vehicles at competitive rates, for maximum value without compromise.",
+    "subtitle": "ABOUT ALICAR",
+    "title": "Quality car rental<br/>in Casablanca",
+    "description": "AliCar is your car rental agency in Casablanca. We offer a fleet of modern, reliable and well-maintained vehicles. Whether for business, family holidays or a short-term need, we have the perfect car for you. Enjoy competitive rates, easy booking, and responsive customer service.",
     "features": {
       "booking": {
-        "title": "Professional Chauffeur",
-        "desc": "Experienced drivers trained in premium service excellence."
+        "title": "Modern Vehicles",
+        "desc": "Recent and well-maintained vehicles for your comfort and safety."
       },
       "locations": {
-        "title": "All Morocco",
-        "desc": "Casablanca, Marrakech, Rabat, Tangier, Agadir, Fez and beyond."
+        "title": "Delivery in Casablanca",
+        "desc": "Casablanca"
       }
     },
     "pickupLabel": "Pick-up Location",
@@ -80,7 +81,7 @@
     "submitErrorMessage": "Error during submission to Google Sheet."
   },
   "cars": {
-    "subtitle": "DISCOVER OUR SERVICES",
+    "subtitle": "DISCOVER OUR FLEET",
     "title": "Our Vehicles<br/>At Your Service",
     "error": "Unable to load data at the moment.",
     "modal": {
@@ -113,12 +114,7 @@
     "submitErrorMessage": "Error during submission to Google Sheet.",
     "bookNow": "Book Now",
     "seats": "Seats",
-    "doors": "Doors",
-    "chauffeurOption": "Add a chauffeur",
-    "chauffeurHourly": "Hourly",
-    "chauffeurHalfDay": "Half day (4h)",
-    "chauffeurFullDay": "Full day (8h)",
-    "chauffeur24h": "24h"
+    "doors": "Doors"
   },
   "gallery": {
     "title": "What Our Clients Say",
@@ -126,22 +122,22 @@
   },
   "features": {
     "express": {
-      "title": "Premium Services",
-      "desc": "Where luxury meets exceptional care, creating unforgettable moments and exceeding all your expectations."
+      "title": "Modern Fleet",
+      "desc": "A fleet of recent, well-maintained vehicles regularly checked for your safety."
     },
     "insurance": {
-      "title": "24/7 Roadside Assistance",
-      "desc": "Reliable support when you need it most, to drive with confidence and peace of mind."
+      "title": "24/7 Assistance",
+      "desc": "Roadside assistance available at any time to help you wherever you are."
     },
     "support": {
-      "title": "Best Price Quality",
-      "desc": "Quality vehicles at competitive rates, for maximum value without compromise."
+      "title": "Competitive Rates",
+      "desc": "Attractive prices with excellent value for money, no hidden fees."
     }
   },
   "testimonials": {
-    "testimonial1": "Flawless service! Punctual driver, luxurious vehicle and perfect driving. An experience worthy of the highest international standards.",
-    "testimonial2": "I used Yahya Car for my trips in Casablanca. Remarkable professionalism, I highly recommend.",
-    "testimonial3": "Airport transfer organized without any difficulty. Warm welcome, absolute comfort. My new reflex in Morocco.",
+    "testimonial1": "Flawless service! Recent and very clean vehicle. Quick booking and welcoming staff. A wonderful experience.",
+    "testimonial2": "I rented from AliCar for my stay in Casablanca. Remarkable professionalism, I highly recommend.",
+    "testimonial3": "Car rental organized without any difficulty. Warm welcome, absolute comfort. My new reflex in Morocco.",
     "role": "Client",
     "prev": "Previous review",
     "next": "Next review"
@@ -151,24 +147,24 @@
     "sectionHeading": "Have questions<br/>about our services ?",
     "moreQuestions": "Have other questions ?",
     "contactWhatsApp": "Contact us on WhatsApp",
-    "q1": "How to book a chauffeur ?",
-    "a1": "Booking is simple and fast. Choose your service (airport transfer, tour, business transport), select your dates and locations, then confirm your reservation. Our team will contact you to finalize the details of your pick-up.",
+    "q1": "How to book a car ?",
+    "a1": "Booking is simple and fast. Choose your vehicle, select your rental and return dates, then confirm your reservation. Our team will contact you to finalize the delivery details.",
     "q2": "What types of vehicles do you offer ?",
-    "a2": "Our premium fleet includes the Skoda Superb, Skoda Octavia and Mercedes Vito. Each vehicle is carefully maintained and equipped for your optimal comfort.",
+    "a2": "Our fleet includes modern and well-maintained vehicles. Each car is carefully inspected before every rental for your comfort and safety.",
     "q3": "Can I cancel my reservation ?",
     "a3": "Yes, you can cancel your reservation up to 24 hours before pick-up free of charge. A 50% fee applies for late cancellations.",
-    "q4": "Which cities do you serve ?",
-    "a4": "We cover the main cities of Morocco: Casablanca, Marrakech, Rabat, Tangier, Agadir, Fez and their airports. Additional destinations can be arranged on request."
+    "q4": "Where can I pick up my vehicle ?",
+    "a4": "We deliver the vehicle in Casablanca, at Mohammed V airport, to your hotel or to your address."
   },
   "footer": {
-    "tagline": "Yahya Car — Where quality meets affordability",
-    "copyright": "2026 Yahya Car. All rights reserved.",
+    "tagline": "AliCar — Your trusted partner for car rental in Casablanca and across Morocco.",
+    "copyright": "2026 AliCar. All rights reserved.",
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
     "backToTop": "Back to top"
   },
   "pwa": {
-    "installTitle": "Install Yahya Car",
+    "installTitle": "Install AliCar",
     "installDesc": "Add to your home screen",
     "install": "Install",
     "close": "Close"
@@ -179,19 +175,19 @@
   },
   "legal": {
     "terms": {
-      "title": "Terms & Conditions - YAHYA CAR",
+      "title": "Terms & Conditions - ALICAR",
       "sections": [
         {
           "title": "Age limit, drivers and documents",
-          "content": "The main driver and any additional driver named on the contract are the only people authorized to drive the vehicle. They must be over 21 years old and hold a valid driving license issued at least one year ago.\n\nTo benefit from our chauffeur services, you must present a valid driving license and a passport. Photocopies are not accepted."
+          "content": "The main driver and any additional driver named on the contract are the only people authorized to drive the vehicle. They must be over 21 years old and hold a valid driving license issued at least one year ago.\n\nTo benefit from our rental services, you must present a valid driving license and ID. Photocopies are not accepted."
         },
         {
           "title": "Booking procedure",
-          "content": "Booking a vehicle with Yahya Car in Morocco allows you to benefit from quality car rental and optional services such as pick-up and drop-off at a specified date and location for an agreed period.\n\nYou may cancel your booking at any time up to 24 hours before the scheduled pick-up date by informing us by email or WhatsApp."
+          "content": "Booking a vehicle with AliCar in Morocco allows you to benefit from quality car rental and optional services such as pick-up and drop-off at a specified date and location for an agreed period.\n\nYou may cancel your booking at any time up to 24 hours before the scheduled pick-up date by informing us by email or WhatsApp."
         },
         {
           "title": "Vehicle pick-up and return",
-          "content": "Yahya Car provides pick-up and drop-off at airports, hotels or your residence in all cities where we operate.\n\nIt is possible to be picked up in one city and dropped off in another."
+          "content": "AliCar provides vehicle delivery and pick-up at airports, hotels or your residence in Casablanca.\n\nIt is possible to be delivered at one location and return the vehicle at another."
         },
         {
           "title": "Vehicle",
@@ -199,11 +195,11 @@
         },
         {
           "title": "Service use",
-          "content": "You must use the transport service in accordance with Moroccan laws and regulations. The assigned driver is a qualified professional who respects the highway code and safety rules.\n\nUse of the vehicle outside Morocco is not permitted.\n\nIf you wish to extend your service duration, please inform us as soon as possible, at least 24 hours in advance."
+          "content": "You must use the vehicle in accordance with Moroccan laws and regulations.\n\nUse of the vehicle outside Morocco is not permitted.\n\nIf you wish to extend your rental period, please inform us as soon as possible, at least 24 hours in advance."
         },
         {
           "title": "Unacceptable behavior",
-          "content": "Yahya Car may refuse to provide you with a service if you show discourteous or unacceptable behavior, such as driving under the influence of alcohol or drugs, or behaving rudely toward a driver or agency representative."
+          "content": "AliCar may refuse to provide you with a service if you show discourteous or unacceptable behavior, such as driving under the influence of alcohol or drugs, or behaving rudely toward an agency representative."
         },
         {
           "title": "Payment methods",
@@ -211,11 +207,11 @@
         },
         {
           "title": "Prepayments and deposits",
-          "content": "A prepayment may be required to confirm certain reservations. The amount will be communicated to you upon confirmation of your service."
+          "content": "A prepayment may be required to confirm certain reservations. The amount will be communicated to you upon confirmation of your booking."
         },
         {
           "title": "Accidents and damage",
-          "content": "In the event of an accident or damage to the vehicle, even if no third party is involved, you must immediately notify the police and Yahya Car within 48 hours.\n\nFor minor damage, no additional charges will be applied."
+          "content": "In the event of an accident or damage to the vehicle, even if no third party is involved, you must immediately notify the police and AliCar within 48 hours.\n\nFor minor damage, no additional charges will be applied."
         },
         {
           "title": "Insurance",
@@ -224,9 +220,9 @@
       ]
     },
     "privacy": {
-      "title": "Privacy Policy - YAHYA CAR",
+      "title": "Privacy Policy - ALICAR",
       "updated": "Last updated on June 1, 2026",
-      "intro": "This privacy notice for YAHYA CAR ('we', 'us' or 'our') describes how and why we may collect, store, use and/or share your information when you use our services, such as when you visit our website at https://yahyacar.ma or any other company website that links to this privacy notice.",
+      "intro": "This privacy notice for ALICAR ('we', 'us' or 'our') describes how and why we may collect, store, use and/or share your information when you use our services, such as when you visit our website at https://locationalicar.com or any other company website that links to this privacy notice.",
       "sections": [
         {
           "title": "Summary of key points",
@@ -266,7 +262,7 @@
         },
         {
           "title": "9. How can you contact us about this notice?",
-          "content": "If you have questions or comments about this notice, you can contact us by mail at: YAHYA CAR, Bld Fouarat CC N°22, Hay Mohammadi, Casablanca, Morocco — contact@yahyacar.ma"
+          "content": "If you have questions or comments about this notice, you can contact us by mail at: ALICAR, 13 Rue de la Victoire, Casablanca 20290, Morocco — contact@locationalicar.com"
         }
       ]
     }

@@ -47,7 +47,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-6">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
-              <img src={img('/pwa.png')} alt="YAHYA CAR" className="h-28 w-auto" />
+              <img src={img('/pwa.png')} alt="ALICAR" className="h-28 w-auto" />
             </a>
 
             {/* Tagline */}
@@ -90,7 +90,7 @@ export default function Footer() {
                 Trustpilot 4.8/5 — Tripadvisor 5.0/5
               </p>
               <a
-                href="https://share.google/kaXndQXbyI1OfprII"
+                href="https://maps.app.goo.gl/wjPkukvmkyaMPFCL9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-remons-primary font-semibold font-inter text-xs hover:scale-105 hover:shadow-lg transition-all duration-300"

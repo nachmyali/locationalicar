@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 import { img } from '@/lib/utils';
 
-const STORAGE_KEY = 'yacout-tours-pwa-dismissed';
+const STORAGE_KEY = 'alicar-pwa-dismissed';
 
 export default function PwaInstallBanner() {
   const { t } = useTranslation();
@@ -45,7 +45,7 @@ export default function PwaInstallBanner() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[9999] p-4 pb-6 animate-in slide-in-from-bottom-4 duration-500">
       <div className="mx-auto max-w-md rounded-2xl bg-white/95 backdrop-blur-lg shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-gray-100 p-4 flex items-center gap-3">
-        <img src={img('/pwa.png')} alt="YAHYA CAR" className="h-11 w-auto shrink-0" />
+        <img src={img('/pwa.png')} alt="ALICAR" className="h-11 w-auto shrink-0" />
         <div className="flex-1 min-w-0">
           <p className="font-poppins font-semibold text-sm text-gray-900">{t('pwa.installTitle')}</p>
           <p className="font-inter text-xs text-gray-500 truncate">{t('pwa.installDesc')}</p>

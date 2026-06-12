@@ -77,6 +77,9 @@ export default function Hero() {
           </p>
           <h1 className="font-poppins text-4xl sm:text-5xl lg:text-[48px] font-bold text-white leading-[1.2]"
             dangerouslySetInnerHTML={{ __html: t('hero.title') }} />
+          <p className="mt-6 text-white/85 text-sm sm:text-base font-inter leading-relaxed max-w-md">
+            {t('hero.description')}
+          </p>
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:ml-[12%] lg:max-w-[680px]">
