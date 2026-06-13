@@ -18,7 +18,7 @@ export const currencies: Currency[] = [
 const rates: Record<CurrencyCode, number> = {
   EUR: 1,
   USD: 1.10,
-  MAD: 10.80,
+  MAD: 10,
 };
 
 export function convertPrice(euroAmount: number, to: CurrencyCode): number {
