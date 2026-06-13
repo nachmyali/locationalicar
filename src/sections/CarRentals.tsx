@@ -109,7 +109,7 @@ function buildTransportMap(data: TransportPrice[]): Record<string, number> {
   return map;
 }
 
-const PHONE = '21264405566';
+const PHONE = '212664405566';
 
   function BookingModal({
   car, tariffs, transportPrices, locations, seasonStart, seasonEnd,

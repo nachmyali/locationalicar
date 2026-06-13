@@ -95,7 +95,7 @@ export default function About() {
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-remons-gray font-inter text-sm">WhatsApp :</span>
                 <a
-                  href="https://wa.me/212644045555"
+                  href="https://wa.me/212664405566"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-remons-primary text-white text-sm font-medium px-4 py-2 rounded-xl hover:bg-remons-primary-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg shadow-button"

@@ -33,7 +33,7 @@ export default function FAQ() {
               dangerouslySetInnerHTML={{ __html: t('faq.sectionHeading') }} />
             <p className="text-remons-gray text-sm font-inter leading-relaxed mt-6">
               {t('faq.moreQuestions')} <br />
-              <a href="https://wa.me/212644045555" target="_blank" rel="noopener noreferrer" className="text-remons-primary font-semibold hover:underline">
+              <a href="https://wa.me/212664405566" target="_blank" rel="noopener noreferrer" className="text-remons-primary font-semibold hover:underline">
                 {t('faq.contactWhatsApp')}
               </a>
             </p>
