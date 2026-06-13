@@ -34,7 +34,7 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
 
 // ─── Admin user ────────────────────────────────────────────
 
-const ADMIN_EMAIL = 'contact@locationalicar.com';
+const ADMIN_EMAIL = 'contact@alicar.ink';
 const ADMIN_PASSWORD = '066790249';
 
 async function createAdmin() {

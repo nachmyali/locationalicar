@@ -40,7 +40,7 @@ async function run() {
 
   // 1. Admin login
   const { data: { session }, error: loginErr } = await anonClient.auth.signInWithPassword({
-    email: 'contact@locationalicar.com',
+    email: 'contact@alicar.ink',
     password: '066790249',
   });
   if (loginErr) { console.log('❌ LOGIN:', loginErr.message); return; }

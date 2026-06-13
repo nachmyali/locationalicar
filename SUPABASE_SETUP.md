@@ -66,7 +66,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ### Compte admin unique
 
-- **Email :** `contact@locationalicar.com`
+- **Email :** `contact@alicar.ink`
 - **Mot de passe :** `066790249`
 - Créé via `scripts/seed.mjs` avec `email_confirm: true`
 - Lié à la table `admin_profiles` via `auth.users.id`
@@ -435,7 +435,7 @@ node scripts/seed.mjs
 
 | Champ | Valeur |
 |---|---|
-| Email | `contact@locationalicar.com` |
+| Email | `contact@alicar.ink` |
 | Mot de passe | `066790249` |
 | Profil | `{ name: 'Admin Yahya Car' }` |
 
@@ -623,7 +623,7 @@ proxy: {
 
 ## À propos — Yahya Car
 
-**Site web :** [locationalicar.com](https://locationalicar.com)
+**Site web :** [alicar.ink](https://alicar.ink)
 
 **Slogan :** Où la qualité rencontre l'abordabilité.
 
@@ -638,5 +638,5 @@ proxy: {
 |---|---|
 | Adresse | Bld Fouarat CC N°22, Hay Mohammadi, Casablanca |
 | Téléphone | `+212 644-045555` |
-| Email | `contact@locationalicar.com` |
-| Site web | `https://locationalicar.com` |
+| Email | `contact@alicar.ink` |
+| Site web | `https://alicar.ink` |

@@ -200,7 +200,7 @@ const PHONE = '21264405566';
 
       if (error) throw new Error(error.message);
       setSubmitted(true);
-      sendReservationEmail('contact@locationalicar.com', 'new', {
+      sendReservationEmail('contact@alicar.ink', 'new', {
         client_name: form.name,
         client_email: form.email,
         client_phone: form.phone,

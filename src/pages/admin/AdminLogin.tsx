@@ -49,7 +49,7 @@ export default function AdminLogin() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-              placeholder="contact@locationalicar.com"
+              placeholder="contact@alicar.ink"
             />
           </div>
 

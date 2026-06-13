@@ -1,12 +1,12 @@
 ﻿{
   "common": {
     "phone": "0664405566",
-    "email": "contact@locationalicar.com",
+    "email": "contact@alicar.ink",
     "address": "13 Rue de la Victoire, Casablanca 20290",
     "close": "Fermer"
   },
   "topbar": {
-    "email": "contact@locationalicar.com",
+    "email": "contact@alicar.ink",
     "address": "13 Rue de la Victoire, Casablanca 20290"
   },
   "navbar": {
@@ -222,7 +222,7 @@
     "privacy": {
       "title": "Politique de confidentialité - ALICAR",
       "updated": "Dernière mise à jour le 1er juin 2026",
-      "intro": "Cet avis de confidentialité pour ALICAR ('nous', 'notre' ou 'nos') décrit comment et pourquoi nous pourrions collecter, stocker, utiliser et/ou partager vos informations lorsque vous utilisez nos services, par exemple lorsque vous visitez notre site web à https://locationalicar.com ou tout autre site web de notre société qui renvoie à cet avis de confidentialité.",
+      "intro": "Cet avis de confidentialité pour ALICAR ('nous', 'notre' ou 'nos') décrit comment et pourquoi nous pourrions collecter, stocker, utiliser et/ou partager vos informations lorsque vous utilisez nos services, par exemple lorsque vous visitez notre site web à https://alicar.ink ou tout autre site web de notre société qui renvoie à cet avis de confidentialité.",
       "sections": [
         {
           "title": "Résumé des points clés",
@@ -262,7 +262,7 @@
         },
         {
           "title": "9. Comment pouvez-vous nous contacter au sujet de cet avis ?",
-          "content": "Si vous avez des questions ou des commentaires sur le présent avis, vous pouvez nous contacter par courrier à l'adresse suivante : ALICAR, 13 Rue de la Victoire, Casablanca 20290, Maroc — contact@locationalicar.com"
+          "content": "Si vous avez des questions ou des commentaires sur le présent avis, vous pouvez nous contacter par courrier à l'adresse suivante : ALICAR, 13 Rue de la Victoire, Casablanca 20290, Maroc — contact@alicar.ink"
         }
       ]
     }

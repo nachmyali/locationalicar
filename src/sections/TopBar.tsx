@@ -10,7 +10,7 @@ export default function TopBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[42px]">
           <div className="flex items-center gap-4 text-[13px] font-inter">
-            <a href="mailto:contact@locationalicar.com" className="flex items-center gap-2 hover:text-remons-primary transition-colors">
+            <a href="mailto:contact@alicar.ink" className="flex items-center gap-2 hover:text-remons-primary transition-colors">
               <Mail size={14} />
               <span>{t('topbar.email')}</span>
             </a>
